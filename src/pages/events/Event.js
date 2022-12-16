@@ -3,7 +3,7 @@ import { Container, Media } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../components/Avatar';
-import { DropdownMenu } from '../../components/DropdownMenu';
+import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from '../../styles/Event.module.css';
 
@@ -66,7 +66,7 @@ function Event(props) {
         </Link>
 
         {is_owner && eventPage && (
-          <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete} />
+          <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
         )}
       </Media>
       <p>{content}</p>

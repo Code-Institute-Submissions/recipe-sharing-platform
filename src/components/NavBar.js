@@ -41,13 +41,18 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/events/create"
-        aria-label="create an event"
-        rel="noreferrer"
       >
-        <i className="fa-regular fa-calendar-plus"></i>
-        {' '}
-        Add Event
+        <i className="fas fa-calendar-plus"></i>Add Event
       </NavLink>
+ 
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/books/create"
+      >
+        <i className="fa fa-plus-circle"></i>Add Book
+      </NavLink>
+
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -63,9 +68,11 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Liked
       </NavLink>
+
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
+      
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
@@ -77,12 +84,29 @@ const NavBar = () => {
   const loggedOutIcons = (
     <>
       <NavLink
+        to="/events"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i className="fas fa-solid fa-calendar"></i>Events
+      </NavLink>
+      
+      <NavLink
+        to="/books"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i className="fas fa-solid fa-book"></i>Books
+      </NavLink>
+      
+      <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/signin"
       >
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
+      
       <NavLink
         to="/signup"
         className={styles.NavLink}
