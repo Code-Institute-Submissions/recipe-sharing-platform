@@ -36,7 +36,18 @@ const NavBar = () => {
     </NavLink>
   );
   const loggedInIcons = (
-    <>
+    <>    
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/events/create"
+        aria-label="create an event"
+        rel="noreferrer"
+      >
+        <i className="fa-regular fa-calendar-plus"></i>
+        {' '}
+        Add Event
+      </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -44,6 +55,7 @@ const NavBar = () => {
       >
         <i className="fas fa-stream"></i>Feed
       </NavLink>
+
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
