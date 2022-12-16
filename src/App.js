@@ -18,6 +18,7 @@ import EventCreateForm from './pages/events/EventCreateForm';
 import EventEditForm from './pages/events/EventEditForm';
 import EventPage from './pages/events/EventPage';
 import EventsPage from './pages/events/EventsPage';
+import BookCreateForm from './pages/books/BookCreateForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -65,6 +66,7 @@ function App() {
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
           <Route exact path="/events/:id/edit" render={() => <EventEditForm />} />
           <Route exact path="/events/:id" render={() => <EventPage />} />
+          <Route exact path="/books/create" render={() => <BookCreateForm />} />
           <Route
             exact
             path="/profiles/:id/edit/username"
