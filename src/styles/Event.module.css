@@ -1,0 +1,16 @@
+.Container {
+    border-bottom: 1px solid #000000;
+}
+
+.Container h2 {
+    text-transform: uppercase;
+}
+
+.OnHover {
+    color: #000000;
+}
+
+.OnHover:hover {
+    color: #2142b2;
+    text-decoration: none;
+}
