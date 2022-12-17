@@ -56,7 +56,7 @@ function Book(props) {
       <Media className={styles.TopRow}>
         <Link to={`profiles/${profile_id}`} className={styles.Username}>
           <Avatar src={profile_image} height={30} />
-          <h2 className={styles.OnHover}>By: {owner}</h2>
+          <h2 className={styles.OnHover}>Suggested by: {owner}</h2>
           <p className={styles.OnHover}>{created_at}</p>
           <p className={styles.OnHover}>{updated_at}</p>
         </Link>

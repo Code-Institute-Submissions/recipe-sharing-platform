@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Container, Col } from 'react-bootstrap';
+import { axiosReq } from '../../api/axiosDefaults';
+import Book from './Book';
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import Book from "./Book";
-
-import PopularProfiles from "../profiles/PopularProfiles";
-
+/**
+ * Display single books details.
+ */
 function BookPage() {
   const { id } = useParams();
   const [book, setBook] = useState({ results: [] });
 
+  /**
+   * Retrieve books data from API.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -21,7 +22,7 @@ function BookPage() {
         ]);
         setBook({ results: [book] });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -29,15 +30,11 @@ function BookPage() {
   }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
-        <Book {...book.results[0]} setBooks={setBook} postBook />
+    <Container>
+      <Col>
+        <Book {...book.results[0]} setBook={setBook} bookPage />
       </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
-      </Col>
-    </Row>
+    </Container>
   );
 }
 

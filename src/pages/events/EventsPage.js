@@ -45,6 +45,7 @@ function EventsPage({ message, filter = '' }) {
   return (
     <Container>
       <div className={styles.SearchForm}>
+      <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchField}
           onSubmit={(event) => event.preventDefault()}
@@ -53,8 +54,7 @@ function EventsPage({ message, filter = '' }) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             type="text"
-            placeholder="search events by country, city or name"
-            aria-label="search by country city name"
+            placeholder="Search events by country, city or name"
           />
         </Form>
       </div>
