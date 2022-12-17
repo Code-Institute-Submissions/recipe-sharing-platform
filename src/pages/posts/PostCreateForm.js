@@ -103,21 +103,23 @@ function PostCreateForm() {
         </Alert>
       ))}
 
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        Post
+      </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
         Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
-      </Button>
     </div>
   );
 
   return (
     <Form onSubmit={handleSubmit}>
+      <br />
       <h2><strong>POST A RECIPE!</strong></h2>
+      <br />
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
