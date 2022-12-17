@@ -14,8 +14,8 @@ function Event(props) {
     owner,
     profile_id,
     profile_image,
-    created_on,
-    modified_on,
+    created_at,
+    updated_at,
     title,
     content,
     date,
@@ -58,7 +58,7 @@ function Event(props) {
           <strong>{title}</strong>
         </h2>
       </Link>
-      <p>Last updated: {modified_on}</p>
+      <p>Last updated: {updated_at}</p>
       <Media>
         <Link to={`events/${profile_id}`} className={styles.OnHover}>
           <Avatar src={profile_image} height={30} />
@@ -91,7 +91,7 @@ function Event(props) {
       <p>
         Submitted:
         {' '}
-        {created_on}
+        {created_at}
       </p>
     </Container>
   );

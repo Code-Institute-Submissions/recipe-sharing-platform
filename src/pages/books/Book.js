@@ -1,80 +1,86 @@
-import React from "react";
-import styles from "../../styles/Book.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Col, Container, Media } from 'react-bootstrap';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { MoreDropdown } from '../../components/MoreDropdown';
+import { axiosRes } from '../../api/axiosDefaults';
+import Avatar from '../../components/Avatar';
+import styles from '../../styles/Book.module.css';
 
-const Book = (props) => {
+/**
+ * Render the data of a single book.
+ */
+function Book(props) {
   const {
     id,
     owner,
     profile_id,
     profile_image,
+    created_at,
+    updated_at,
     title,
     author,
     description,
     number_of_pages,
     publication_date,
     image,
-    updated_at,
     bookPage,
-    setBooks,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  /**
+   * Route user to Book Edit page.
+   */
   const handleEdit = () => {
     history.push(`/books/${id}/edit`);
   };
 
+  /**
+   * Delete book data from API.
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/books/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+    //   console.log(err);
     }
   };
 
   return (
-    <Card className={styles.Book}>
+    <Container className={styles.Container}>
       <br />
-      <h2><strong>SUGGEST A BOOK!</strong></h2>
+      <Media className={styles.TopRow}>
+        <Link to={`profiles/${profile_id}`} className={styles.Username}>
+          <Avatar src={profile_image} height={30} />
+          <h2 className={styles.OnHover}>By: {owner}</h2>
+          <p className={styles.OnHover}>{created_at}</p>
+          <p className={styles.OnHover}>{updated_at}</p>
+        </Link>
+        {is_owner && bookPage && (
+          <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+        )}
+      </Media>
+
+      <Col className={styles.Content}>
+        <Link to={`/books/${id}`}>
+          <img src={image} alt={title} />
+        </Link>
+        <br />
+        <h2>
+          <strong>{title}</strong>
+        </h2>
+        <p>Author: {author}</p>
+        <p>Description: {description}</p>
+        <p>Number of pages: {number_of_pages}</p>
+        <p>Publication date: {publication_date}</p>
+      </Col>
       <br />
-      <Card.Body>
-        <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
-          </Link>
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
-            {is_owner && bookPage && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            )}
-          </div>
-        </Media>
-      </Card.Body>
-      <Link to={`/books/${id}`}>
-        <Card.Img src={image} alt={title} />
-      </Link>
-      <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {author && <Card.Text>{author}</Card.Text>}
-        {number_of_pages && <Card.Text>{number_of_pages}</Card.Text>}
-        {publication_date && <Card.Text>{publication_date}</Card.Text>}
-        {description && <Card.Text>{description}</Card.Text>}
-      </Card.Body>
-    </Card>
+    </Container>
   );
-};
+}
 
 export default Book;

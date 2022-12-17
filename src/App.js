@@ -19,6 +19,9 @@ import EventEditForm from './pages/events/EventEditForm';
 import EventPage from './pages/events/EventPage';
 import EventsPage from './pages/events/EventsPage';
 import BookCreateForm from './pages/books/BookCreateForm';
+import BookEditForm from './pages/books/BookEditForm';
+import BookPage from './pages/books/BookPage';
+import BooksPage from './pages/books/BooksPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -48,6 +51,16 @@ function App() {
           />
           <Route
             exact
+            path="/liked"
+            render={() => (
+              <PostsPage
+                message="No results found. Adjust the search keyword or like a post."
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            )}
+          />
+          <Route
+            exact
             path="/events"
             render={() => (
               <EventsPage message="No results found." />
@@ -57,17 +70,7 @@ function App() {
             exact
             path="/books"
             render={() => (
-              <PostsPage message="No results found." />
-            )}
-          />
-          <Route
-            exact
-            path="/liked"
-            render={() => (
-              <PostsPage
-                message="No results found. Adjust the search keyword or like a post."
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-              />
+              <BooksPage message="No results found." />
             )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
@@ -77,9 +80,12 @@ function App() {
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
-          <Route exact path="/events/:id/edit" render={() => <EventEditForm />} />
           <Route exact path="/events/:id" render={() => <EventPage />} />
+          <Route exact path="/events/:id/edit" render={() => <EventEditForm />} />
           <Route exact path="/books/create" render={() => <BookCreateForm />} />
+          <Route exact path="/books/:id" render={() => <BookPage />} />
+          <Route exact path="/books/:id/edit" render={() => <BookEditForm />} />
+          
           <Route
             exact
             path="/profiles/:id/edit/username"

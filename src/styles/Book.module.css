@@ -1,12 +1,34 @@
-.Book {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Book figure,
-  h5 {
-    margin: 0 0;
-  }
+.Container {
+  border-bottom: 1px solid #000000;
+}
+
+.Username h2,
+.Username p {
+color: black; 
+}
+
+.Username h2 {
+font-size: 150%;
+text-transform: uppercase;
+}
+
+.Username:hover {
+text-decoration: none;
+}
+
+.OnHover:hover {
+color: #2142b2;
+text-decoration: none;
+}
+
+.TopRow {
+justify-content: space-between;
+}
+
+.Content h2 {
+  text-transform: uppercase;
+}
+
+.Content img {
+  width: 100%;
+}
