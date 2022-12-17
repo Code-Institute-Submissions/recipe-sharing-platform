@@ -7,44 +7,41 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
+import Asset from "../../components/Asset";
+
 import Upload from "../../assets/upload.png";
 
-import { useHistory } from 'react-router-dom';
-import { axiosReq } from '../../api/axiosDefaults';
 import styles from '../../styles/BookCreateForm.module.css';
-import appStyles from '../../App.module.css';
-import btnStyles from '../../styles/Button.module.css';
-import Asset from '../../components/Asset';
-import { useRedirect } from '../../hooks/useRedirect';
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
-function ArticleCreateForm() {
-  useRedirect('loggedOut');
-
+function BookCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
-  const [articleData, setArticleData] = useState({
-    title: '',
-    image: '',
-    author: '',
-    description: '',
-    number_of_pages: '',
-    publication_date: '',
+  const [bookData, setBookData] = useState({
+    title: "",
+    author: "",
+    description: "",
+    number_of_pages: "",
+    publication_date: "",
+    image: "",
   });
-
-  const {
-    title, image, author, description, number_of_pages, publication_date,
-  } = articleData;
+  const { title, author, description, number_of_pages, publication_date, image } = bookData;
 
   const imageInput = useRef(null);
   const history = useHistory();
 
   /**
-   * Populate ArticleData strings.
+   * Populate BookData strings.
    */
   const handleChange = (event) => {
-    setArticleData({
-      ...articleData,
+    setBookData({
+      ...bookData,
       [event.target.name]: event.target.value,
     });
   };
@@ -56,8 +53,8 @@ function ArticleCreateForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
-      setArticleData({
-        ...articleData,
+      setBookData({
+        ...bookData,
         image: URL.createObjectURL(event.target.files[0]),
       });
     }
@@ -65,90 +62,133 @@ function ArticleCreateForm() {
 
   /**
    * Pust data to API.
-   * Direct user to article page.
+   * Direct user to book page.
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append('title', title);
-    formData.append('image', image);
+    formData.append("title", title);
     formData.append('author', author);
     formData.append('description', description);
     formData.append('number_of_pages', number_of_pages);
     formData.append('publication_date', publication_date);
+    formData.append("image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.post('/books/', formData);
+      const { data } = await axiosReq.post("/books/", formData);
       history.push(`/books/${data.id}`);
-      // console.log(formData);
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
     }
   };
 
+  const textFields = (
+    <div className="text-center">
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Author</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={2}
+          name="author"
+          value={author}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Description</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="description"
+          value={description}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Number of Pages</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={1}
+          name="number of pages"
+          value={number_of_pages}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Publication Date</Form.Label>
+        <Form.Control
+          tyoe="date"
+          rows={1}
+          name="publication date"
+          value={publication_date}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        onClick={() => history.goBack()}
+      >
+        Cancel
+      </Button>
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        Add
+      </Button>
+    </div>
+  );
+
   return (
-    <Container className={styles.FormAlignment}>
-      <br />
-      <h2><strong>Add a book!</strong></h2>
-      <br />
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label>Title:</Form.Label>
-          <Form.Control
-            type="text"
-            name="title"
-            value={title}
-            onChange={handleChange}
-            aria-label="title"
-          />
-        </Form.Group>
-        {errors?.title?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-
-        <Form.Group>
-          <Form.Label>Author:</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={2}
-            name="author"
-            value={author}
-            onChange={handleChange}
-            aria-label="author"
-          />
-        </Form.Group>
-        {errors?.content?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-
-        <Form.Group>
-          <Form.Label>Description:</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={10}
-            name="description"
-            value={description}
-            onChange={handleChange}
-            aria-label="description"
-          />
-        </Form.Group>
-        {errors?.content?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-
-        <Container
+    <Form onSubmit={handleSubmit}>
+      <Row>
+        <br />
+        <h2><strong>Add a book!</strong></h2>
+        <br />
+          <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
+            
             <Form.Group className="text-center">
               {image ? (
                 <>
@@ -188,21 +228,13 @@ function ArticleCreateForm() {
                 {message}
               </Alert>
             ))}
-        </Container>
-        <br />
-        <Row className={styles.RowSpacing}>
-          <Button type="submit" className={btnStyles.Button}>
-            Add
-          </Button>
 
-          <Button onClick={() => history.goBack()} className={btnStyles.Button}>
-            Cancel
-          </Button>
-        </Row>
-        <br />
-      </Form>
-    </Container>
+            <div className="d-md-none">{textFields}</div>
+          </Container>
+          <Container className={appStyles.Content}>{textFields}</Container>
+      </Row>
+    </Form>
   );
 }
 
-export default ArticleCreateForm;
+export default BookCreateForm;
