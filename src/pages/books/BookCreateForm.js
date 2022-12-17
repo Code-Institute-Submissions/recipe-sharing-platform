@@ -11,7 +11,7 @@ import Asset from "../../components/Asset";
 
 import Upload from "../../assets/upload.png";
 
-import styles from '../../styles/BookCreateForm.module.css';
+import styles from '../../styles/BookCreateEditForm.module.css';
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
@@ -89,7 +89,7 @@ function BookCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Title:</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -104,64 +104,61 @@ function BookCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Author</Form.Label>
+        <Form.Label>Author:</Form.Label>
         <Form.Control
-          as="textarea"
-          rows={2}
+          type="text"
           name="author"
           value={author}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.author?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
 
       <Form.Group>
-        <Form.Label>Description</Form.Label>
+        <Form.Label>Description:</Form.Label>
         <Form.Control
-          as="textarea"
+          type="text"
           rows={6}
           name="description"
           value={description}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.description?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
 
       <Form.Group>
-        <Form.Label>Number of Pages</Form.Label>
+        <Form.Label>Number of Pages:</Form.Label>
         <Form.Control
-          as="textarea"
-          rows={1}
-          name="number of pages"
+          type="number"
+          name="number_of_pages"
           value={number_of_pages}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.number_of_pages?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
 
       <Form.Group>
-        <Form.Label>Publication Date</Form.Label>
+        <Form.Label>Publication Date:</Form.Label>
         <Form.Control
-          tyoe="date"
-          rows={1}
-          name="publication date"
+          type="date"
+          name="publication_date"
           value={publication_date}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.publication_date?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -181,10 +178,10 @@ function BookCreateForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <br />
+      <h2><strong>SUGGEST A BOOK!</strong></h2>
+      <br />
       <Row>
-        <br />
-        <h2><strong>Add a book!</strong></h2>
-        <br />
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >

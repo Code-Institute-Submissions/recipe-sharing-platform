@@ -73,7 +73,7 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Title:</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -88,7 +88,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Content:</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -117,6 +117,7 @@ function PostCreateForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2><strong>POST A RECIPE!</strong></h2>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container

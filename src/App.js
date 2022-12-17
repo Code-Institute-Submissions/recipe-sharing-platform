@@ -48,6 +48,20 @@ function App() {
           />
           <Route
             exact
+            path="/events"
+            render={() => (
+              <EventsPage message="No results found." />
+            )}
+          />
+          <Route
+            exact
+            path="/books"
+            render={() => (
+              <PostsPage message="No results found." />
+            )}
+          />
+          <Route
+            exact
             path="/liked"
             render={() => (
               <PostsPage
@@ -62,7 +76,6 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route exact path="/events" render={() => <EventsPage message="No results." />} />
           <Route exact path="/events/create" render={() => <EventCreateForm />} />
           <Route exact path="/events/:id/edit" render={() => <EventEditForm />} />
           <Route exact path="/events/:id" render={() => <EventPage />} />
