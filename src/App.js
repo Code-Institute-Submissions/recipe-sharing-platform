@@ -63,14 +63,14 @@ function App() {
             exact
             path="/events"
             render={() => (
-              <EventsPage message="No results found." />
+              <EventsPage message="No results found. Adjust the search keyword" />
             )}
           />
           <Route
             exact
             path="/books"
             render={() => (
-              <BooksPage message="No results found." />
+              <BooksPage message="No results found. Adjust the search keyword" />
             )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />

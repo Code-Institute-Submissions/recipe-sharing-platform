@@ -216,11 +216,16 @@ function EventCreateForm() {
 
         <br />
         <Row className={styles.RowSpacing}>
-          <Button type="submit" className={btnStyles.Button}>
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Bright}`}
+            type="submit"
+          >
             Submit
           </Button>
 
-          <Button onClick={() => history.goBack()} className={btnStyles.Button}>
+          <Button onClick={() => history.goBack()}
+            className={`${btnStyles.Button} ${btnStyles.Bright}`}
+          >
             Cancel
           </Button>
         </Row>

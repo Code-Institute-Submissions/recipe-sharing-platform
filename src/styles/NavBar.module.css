@@ -4,9 +4,18 @@
 }
 
 .NavLink {
-  padding: 5px;
+  padding: 4px;
+}
+
+.NavLink:hover{
+  color: teal;
+  text-decoration: none;
+}
+
+.Active{
+  color: teal;
 }
 
 .Active i {
-  color: #2142b2;
+  color: teal;
 }

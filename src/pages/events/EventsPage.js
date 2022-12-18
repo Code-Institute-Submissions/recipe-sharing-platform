@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Form } from 'react-bootstrap';
-import InfiniteScroll from 'react-infinite-scroll-component';
+
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+
+import Asset from '../../components/Asset';
+import Event from './Event';
+
+import appStyles from "../../App.module.css";
+import styles from '../../styles/EventsPage.module.css';
 import { useLocation } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
-import Asset from '../../components/Asset';
+
+import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
-import Event from './Event';
-import styles from '../../styles/EventsPage.module.css';
+import PopularProfiles from "../profiles/PopularProfiles";
 
 
 function EventsPage({ message, filter = '' }) {
@@ -16,7 +26,7 @@ function EventsPage({ message, filter = '' }) {
   const [query, setQuery] = useState('');
 
   /**
-   * Retrieve Events from API.
+   * Retrieve events from API.
    * Display loading spinner until retrieved.
    * Prevent API requests with each keystroke in searchbar.
    */
@@ -43,46 +53,51 @@ function EventsPage({ message, filter = '' }) {
   }, [filter, query, pathname]);
 
   return (
-    <Container>
-      <div className={styles.SearchForm}>
-      <i className={`fas fa-search ${styles.SearchIcon}`} />
+    <Row className="h-100">
+      <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <PopularProfiles mobile />
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
-          className={styles.SearchField}
+          className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             type="text"
-            placeholder="Search events by country, city or name"
+            className="mr-sm-2"
+            placeholder="Search events"
           />
         </Form>
-      </div>
 
-      {hasLoaded ? (
-        <>
-          {events.results.length ? (
-            <InfiniteScroll
-              children={events.results.map((event) => (
-                <Event key={event.id} {...event} setEvents={setEvents} />
-              ))}
-              dataLength={events.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!events.next}
-              next={() => fetchMoreData(events, setEvents)}
-            />
-          ) : (
-            <Container>
-              <Asset message={message} />
-            </Container>
-          )}
-        </>
-      ) : (
-        <Container>
-          <Asset spinner />
-        </Container>
-      )}
-    </Container>
+        {hasLoaded ? (
+          <>
+            {events.results.length ? (
+              <InfiniteScroll
+                children={events.results.map((event) => (
+                  <Event key={event.id} {...event} setEvents={setEvents} />
+                ))}
+                dataLength={events.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!events.next}
+                next={() => fetchMoreData(events, setEvents)}
+              />
+            ) : (
+              <Container className={appStyles.Content}>
+                <Asset src={NoResults} message={message} />
+              </Container>
+            )}
+          </>
+        ) : (
+          <Container className={appStyles.Content}>
+            <Asset spinner />
+          </Container>
+        )}
+        </Col>
+      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles />
+      </Col>
+    </Row>    
   );
 }
 

@@ -10,6 +10,7 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -19,10 +20,11 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      await axios.post("dj-rest-auth/logout/");
+      await axios.post('dj-rest-auth/logout/');
       setCurrentUser(null);
+      removeTokenTimestamp();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -32,9 +34,10 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/posts/create"
     >
-      <i className="far fa-plus-square"></i>Add post
+      <i className="far fa-plus-square"></i>Add Recipe
     </NavLink>
   );
+  
   const loggedInIcons = (
     <>    
       <NavLink
@@ -42,9 +45,9 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/events/create"
       >
-        <i className="fas fa-calendar-plus"></i>Add Event
+        <i className="fas fa-solid fa-calendar-plus"></i>Add Event
       </NavLink>
- 
+
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -82,23 +85,7 @@ const NavBar = () => {
     </>
   );
   const loggedOutIcons = (
-    <>
-      <NavLink
-        to="/events"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="fas fa-solid fa-calendar"></i>Events
-      </NavLink>
-      
-      <NavLink
-        to="/books"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <i className="fas fa-solid fa-book"></i>Books
-      </NavLink>
-      
+    <>      
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -145,6 +132,22 @@ const NavBar = () => {
               to="/"
             >
               <i className="fas fa-home"></i>Home
+            </NavLink>
+
+            <NavLink
+              to="/events"
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+            >
+              <i className="fas fa-solid fa-calendar"></i>Events
+            </NavLink>
+      
+            <NavLink
+              to="/books"
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+            >
+              <i className="fas fa-solid fa-book"></i>Books
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
