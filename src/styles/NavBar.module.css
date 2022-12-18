@@ -5,6 +5,7 @@
 
 .NavLink {
   padding: 4px;
+  font-size: 100%;
 }
 
 .NavLink:hover{
@@ -16,6 +17,6 @@
   color: teal;
 }
 
-.Active i {
+.Active i{
   color: teal;
 }
