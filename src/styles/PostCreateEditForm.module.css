@@ -4,10 +4,15 @@
 }
 
 .Container {
-    min-height: 343px;
-  }
+  font-family: 'WildHazelnut';
+  min-height: 343px;
+}
 
 h2 {
   font-family: 'WildHazelnut';
   text-align: center;
+}
+
+div {
+  font-family: 'WildHazelnut';
 }

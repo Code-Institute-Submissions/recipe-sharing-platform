@@ -1,13 +1,15 @@
 @font-face {
     font-family: WildHazelnut;
     src: url(WildHazelnut.ttf);
-  }
+}
 
 .Container {
+    font-family: 'WildHazelnut';
     min-height: 343px;
 }
 
 .FormAlignment {
+    font-family: 'WildHazelnut';
     text-align: center;
 }
 

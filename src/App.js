@@ -22,6 +22,7 @@ import BookCreateForm from './pages/books/BookCreateForm';
 import BookEditForm from './pages/books/BookEditForm';
 import BookPage from './pages/books/BookPage';
 import BooksPage from './pages/books/BooksPage';
+import NotFound from "./components/NotFound";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -102,7 +103,7 @@ function App() {
             render={() => <ProfileEditForm />}
           />
 
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>

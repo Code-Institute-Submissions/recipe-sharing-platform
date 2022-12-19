@@ -20,6 +20,7 @@
 }
 
 .SearchIcon:hover {
+  font-family: 'WildHazelnut';
   cursor: default;
   color: #cfced3;
 }

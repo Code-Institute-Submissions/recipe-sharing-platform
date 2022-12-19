@@ -4,6 +4,7 @@
 }
 
 .Asset {
+    font-family: 'WildHazelnut';
     display: flex;
     flex-direction: column;
     justify-content: center;

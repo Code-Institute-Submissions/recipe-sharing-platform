@@ -4,26 +4,28 @@
 }
 
 .Post {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
+  font-family: 'WildHazelnut';
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
   
-  .Post figure,
-  h5 {
-    margin: 0 0;
-  }
+.Post figure,
+h5 {
+  font-family: 'WildHazelnut';
+  margin: 0 0;
+}
   
-  .Heart {
-    color: darkorange;
-  }
-  
-  .Heart:hover {
+.Heart {
     color: orangered;
-  }
+}
   
-  .HeartOutline:hover {
+.Heart:hover {
     color: darkorange;
-  }
+}
+  
+.HeartOutline:hover {
+  color: orangered;
+}

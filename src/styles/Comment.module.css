@@ -5,12 +5,13 @@
 
 .Owner {
   font-family: 'WildHazelnut';
-    font-weight: bold;
-    color: orangered;
-    margin-right: 8px;
-  }
+  font-weight: bold;
+  color: orangered;
+  margin-right: 8px;
+}
   
-  .Date {
-    font-weight: lighter;
-    color: #c1c1c5;
-  }
+.Date {
+  font-family: 'WildHazelnut';
+  font-weight: lighter;
+  color: #c1c1c5;
+}

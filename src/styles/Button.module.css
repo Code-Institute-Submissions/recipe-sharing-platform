@@ -4,69 +4,74 @@
 }
 
 .Button {
-    font-family: 'WildHazelnut';
-    font-size: 0.8rem;
-    align-self: center;
-    border-radius: 100px;
-    border-color: transparent;
-    padding: 4px 10px;
-    margin-left: 2px;
-    margin-right: 2px;
-    min-width: 75px;
-  }
+  font-family: 'WildHazelnut';
+  font-size: 0.8rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+}
   
-  .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-  }
+.Button:hover {
+  font-family: 'WildHazelnut';
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+}
   
-  .Button:hover:active {
-    background-color: orangered !important;
-  }
+.Button:hover:active {
+  font-family: 'WildHazelnut';
+  background-color: orangered !important;
+}
   
-  .Button:active {
-    background-color: orangered !important;
-  }
+.Button:active {
+  font-family: 'WildHazelnut';
+  background-color: orangered !important;
+}
   
-  .Button:focus {
-    background-color: orangered;
-  }
+.Button:focus {
+  background-color: orangered;
+}
   
-  .Wide {
-    padding: 10px 50px;
-    width: 100%;
-  }
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
   
-  .Blue,
-  .BlueOutline:hover,
-  .Bright:hover {
-    background-color: orangered;
-    color: #ffffff;
-  }
+.Blue,
+.BlueOutline:hover,
+.Bright:hover {
+  font-family: 'WildHazelnut';
+  background-color: orangered;
+  color: #ffffff;
+}
   
-  .BlueOutline,
-  .Blue:hover {
-    /* border: 1px solid #2142b2; */
-    background-color: #ffffff;
-    color: orangered;
-  }
+.BlueOutline,
+.Blue:hover {
+  font-family: 'WildHazelnut';
+  background-color: #ffffff;
+  color: orangered;
+}
   
-  .Black,
-  .BlackOutline:hover {
-    /* background-color: #242a3d;
-    color: white; */
-    background-color: orangered;
-    color: white;
-  }
+.Black,
+.BlackOutline:hover {
+  font-family: 'WildHazelnut';
+  background-color: orangered;
+  color: white;
+}
   
-  .Black:hover,
-  .BlackOutline {
-    background-color: orangered;
-    color: white;
-  }
+.Black:hover,
+.BlackOutline {
+  font-family: 'WildHazelnut';
+  background-color: orangered;
+  color: white;
+}
   
-  .Bright {
-    background-color: orangered;
-    color: white;
-  }
+.Bright {
+  font-family: 'WildHazelnut';
+  background-color: orangered;
+  color: white;
+}

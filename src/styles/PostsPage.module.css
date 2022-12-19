@@ -4,22 +4,22 @@
 }
 
 .SearchBar input {
-    font-family: 'WildHazelnut';
-    border-radius: 20px;
-    color: #242a3d;
-    padding-left: 40px;
-    margin-bottom: 16px;
-  }
+  font-family: 'WildHazelnut';
+  border-radius: 20px;
+  color: #242a3d;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
   
-  .SearchIcon {
-    font-family: 'WildHazelnut';
-    position: absolute;
-    font-size: 1.2rem;
-    padding: 9px;
-    padding-left: 15px;
-  }
+.SearchIcon {
+  font-family: 'WildHazelnut';
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 9px;
+  padding-left: 15px;
+}
   
-  .SearchIcon:hover {
-    cursor: default;
-    color: #cfced3;
-  }
+.SearchIcon:hover {
+  cursor: default;
+  color: #cfced3;
+}

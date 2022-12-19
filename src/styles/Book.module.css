@@ -4,34 +4,40 @@
 }
 
 .Container {
+  font-family: 'WildHazelnut';
   border-bottom: 1px solid #000000;
 }
 
 .Username h2,
 .Username p {
-color: black; 
+  font-family: 'WildHazelnut';
+  color: black; 
 }
 
 .Username h2 {
-font-family: 'WildHazelnut';
-font-size: 150%;
-text-transform: uppercase;
+  font-family: 'WildHazelnut';
+  font-size: 150%;
+  text-transform: uppercase;
 }
 
 .Username:hover {
-text-decoration: none;
+  text-decoration: none;
+  font-family: 'WildHazelnut';
 }
 
 .OnHover:hover {
-color: orangered;
-text-decoration: none;
+  font-family: 'WildHazelnut';
+  color: orangered;
+  text-decoration: none;
 }
 
 .TopRow {
-justify-content: space-between;
+  font-family: 'WildHazelnut';
+  justify-content: space-between;
 }
 
 .Content h2 {
+  font-family: 'WildHazelnut';
   text-transform: uppercase;
 }
 

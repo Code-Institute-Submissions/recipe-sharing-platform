@@ -4,22 +4,25 @@
 }
 
 .Form {
-    border: none;
-    border-bottom: 2px lightseagreen solid;
-  }
+  font-family: 'WildHazelnut';
+  border: none;
+  border-bottom: 2px darkorange solid;
+}
   
-  .Button {
-    border: none;
-    background-color: #242a3d;
-    color: white;
-    border-radius: 100px;
-    padding: 4px 10px;
-    min-width: 75px;
-    margin: 5px;
-  }
+.Button {
+  font-family: 'WildHazelnut';
+  border: none;
+  background-color: #242a3d;
+  color: white;
+  border-radius: 100px;
+  padding: 4px 10px;
+  min-width: 75px;
+  margin: 5px;
+}
   
-  .Button:hover {
-    cursor: pointer;
-    background-color: white;
-    color: #242a3d;
-  }
+.Button:hover {
+  font-family: 'WildHazelnut';
+  cursor: pointer;
+  background-color: white;
+  color: #242a3d;
+}

@@ -1,9 +1,10 @@
 @font-face {
     font-family: WildHazelnut;
     src: url(WildHazelnut.ttf);
-  }
+}
 
 .FormAlignment {
+    font-family: 'WildHazelnut';
     text-align: center;
 }
 

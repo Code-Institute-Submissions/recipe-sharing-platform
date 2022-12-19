@@ -4,5 +4,6 @@
 }
 
 .WordBreak {
-    word-break: break-all;
-  }
+  font-family: 'WildHazelnut';
+  word-break: break-all;
+}

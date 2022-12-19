@@ -1,21 +1,25 @@
 @font-face {
     font-family: WildHazelnut;
     src: url(WildHazelnut.ttf);
-  }
+}
 
 .Container {
+    font-family: 'WildHazelnut';
     border-bottom: 1px solid #000000;
 }
 
 .Container h2 {
+    font-family: 'WildHazelnut';
     text-transform: uppercase;
 }
 
 .OnHover {
+    font-family: 'WildHazelnut';
     color: #000000;
 }
 
 .OnHover:hover {
+    font-family: 'WildHazelnut';
     color: orangered;
     text-decoration: none;
 }
