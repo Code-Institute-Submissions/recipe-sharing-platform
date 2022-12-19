@@ -1,22 +1,28 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .NavBar {
   background-color: #ffffff;
   border: 1px solid #dadadf;
 }
 
 .NavLink {
+  font-family: 'WildHazelnut';
   padding: 4px;
   font-size: 100%;
 }
 
 .NavLink:hover{
-  color: teal;
+  color: orangered;
   text-decoration: none;
 }
 
 .Active{
-  color: teal;
+  color: orangered;
 }
 
 .Active i{
-  color: teal;
+  color: orangered;
 }

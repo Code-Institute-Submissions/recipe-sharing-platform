@@ -1,6 +1,12 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .Owner {
+  font-family: 'WildHazelnut';
     font-weight: bold;
-    color: teal;
+    color: orangered;
     margin-right: 8px;
   }
   

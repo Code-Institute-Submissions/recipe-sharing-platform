@@ -1,7 +1,13 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .Container {
     min-height: 343px;
   }
 
 h2 {
+  font-family: 'WildHazelnut';
   text-align: center;
 }

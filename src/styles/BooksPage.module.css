@@ -1,4 +1,10 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .SearchBar input {
+  font-family: 'WildHazelnut';
   border-radius: 20px;
   color: #242a3d;
   padding-left: 40px;
@@ -6,6 +12,7 @@
 }
 
 .SearchIcon {
+  font-family: 'WildHazelnut';
   position: absolute;
   font-size: 1.2rem;
   padding: 9px;

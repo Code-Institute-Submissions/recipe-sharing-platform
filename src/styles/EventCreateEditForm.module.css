@@ -1,8 +1,14 @@
+@font-face {
+    font-family: WildHazelnut;
+    src: url(WildHazelnut.ttf);
+  }
+
 .FormAlignment {
     text-align: center;
 }
 
 .FormAlignment h2 {
+    font-family: 'WildHazelnut';
     text-transform: uppercase;
 }
 

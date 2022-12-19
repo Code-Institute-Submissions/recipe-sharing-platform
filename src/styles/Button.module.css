@@ -1,4 +1,10 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .Button {
+    font-family: 'WildHazelnut';
     font-size: 0.8rem;
     align-self: center;
     border-radius: 100px;
@@ -16,15 +22,15 @@
   }
   
   .Button:hover:active {
-    background-color: teal !important;
+    background-color: orangered !important;
   }
   
   .Button:active {
-    background-color: teal !important;
+    background-color: orangered !important;
   }
   
   .Button:focus {
-    background-color: teal;
+    background-color: orangered;
   }
   
   .Wide {
@@ -35,7 +41,7 @@
   .Blue,
   .BlueOutline:hover,
   .Bright:hover {
-    background-color: teal;
+    background-color: orangered;
     color: #ffffff;
   }
   
@@ -43,24 +49,24 @@
   .Blue:hover {
     /* border: 1px solid #2142b2; */
     background-color: #ffffff;
-    color: teal;
+    color: orangered;
   }
   
   .Black,
   .BlackOutline:hover {
     /* background-color: #242a3d;
     color: white; */
-    background-color: teal;
+    background-color: orangered;
     color: white;
   }
   
   .Black:hover,
   .BlackOutline {
-    background-color: teal;
+    background-color: orangered;
     color: white;
   }
   
   .Bright {
-    background-color: teal;
+    background-color: orangered;
     color: white;
   }

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .Post {
     background-color: #ffffff;
     border: 1px solid #dadadf;
@@ -12,13 +17,13 @@
   }
   
   .Heart {
-    color: tomato;
+    color: darkorange;
   }
   
   .Heart:hover {
-    color: teal;
+    color: orangered;
   }
   
   .HeartOutline:hover {
-    color: tomato;
+    color: darkorange;
   }

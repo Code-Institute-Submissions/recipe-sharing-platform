@@ -1,3 +1,8 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .Row {
     height: calc(100vh - 81px);
   }
@@ -12,6 +17,7 @@
   }
   
   .Header {
+    font-family: 'WildHazelnut';
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
@@ -19,7 +25,7 @@
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: teal;
+    color: orangered;
   }
   
   .Link {
@@ -30,7 +36,8 @@
   }
   
   .Link span {
-    color: tomato;
+    font-family: 'WildHazelnut';
+    color: darkorange;
   }
   
   .Container {

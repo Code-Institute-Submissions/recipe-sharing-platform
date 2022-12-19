@@ -1,3 +1,8 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .Form {
     border: none;
     border-bottom: 2px lightseagreen solid;

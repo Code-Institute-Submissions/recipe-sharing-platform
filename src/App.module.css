@@ -41,7 +41,7 @@ a:hover {
 }
 
 a:hover i {
-  color: teal;
+  color: orangered;
   transition: color ease-in-out 0.3s;
 }
 
@@ -59,7 +59,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: teal;
+  color: orangered;
 }
 
 figure {

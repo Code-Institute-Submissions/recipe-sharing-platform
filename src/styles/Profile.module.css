@@ -1,3 +1,8 @@
+@font-face {
+  font-family: WildHazelnut;
+  src: url(WildHazelnut.ttf);
+}
+
 .WordBreak {
     word-break: break-all;
   }

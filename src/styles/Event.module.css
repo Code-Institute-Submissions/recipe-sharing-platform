@@ -1,3 +1,8 @@
+@font-face {
+    font-family: WildHazelnut;
+    src: url(WildHazelnut.ttf);
+  }
+
 .Container {
     border-bottom: 1px solid #000000;
 }
@@ -11,6 +16,6 @@
 }
 
 .OnHover:hover {
-    color: teal;
+    color: orangered;
     text-decoration: none;
 }
