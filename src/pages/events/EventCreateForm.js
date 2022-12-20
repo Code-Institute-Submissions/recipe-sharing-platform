@@ -77,7 +77,7 @@ function EventCreateForm() {
     <Container className={styles.FormAlignment}>
       <br />
       <h2>
-        <strong>Submit an event!</strong>
+        <strong>Submit an Event!</strong>
       </h2>
       <br />
       <Form onSubmit={handleSubmit}>

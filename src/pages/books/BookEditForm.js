@@ -24,9 +24,10 @@ function BookEditForm() {
       description: "",
       number_of_pages: "",
       publication_date: "",
+      book_link: "",
       image: "",
     });
-    const { title, author, description, number_of_pages, publication_date, image } = bookData;
+    const { title, author, description, number_of_pages, publication_date, book_link, image } = bookData;
   
     const imageInput = useRef(null);
     const history = useHistory();
@@ -36,11 +37,11 @@ function BookEditForm() {
       const handleMount = async () => {
         try {
           const { data } = await axiosReq.get(`/books/${id}/`);
-          const { title, author, description, number_of_pages, publication_date, image, is_owner } = data;
+          const { title, author, description, number_of_pages, publication_date, book_link, image, is_owner } = data;
   
-          is_owner ? setBookData({ title, author, description, number_of_pages, publication_date, image }) : history.push("/");
+          is_owner ? setBookData({ title, author, description, number_of_pages, publication_date, book_link, image }) : history.push("/");
         } catch (err) {
-          console.log(err);
+          //console.log(err);
         }
       };
   
@@ -73,6 +74,7 @@ function BookEditForm() {
       formData.append('description', description);
       formData.append('number_of_pages', number_of_pages);
       formData.append('publication_date', publication_date);
+      formData.append('book_link', book_link);
   
       if (imageInput?.current?.files[0]) {
         formData.append("image", imageInput.current.files[0]);
@@ -92,7 +94,7 @@ function BookEditForm() {
     const textFields = (
         <div className="text-center">
           <Form.Group>
-            <Form.Label>Title</Form.Label>
+            <Form.Label>Title:</Form.Label>
             <Form.Control
               type="text"
               name="title"
@@ -107,7 +109,7 @@ function BookEditForm() {
           ))}
     
           <Form.Group>
-            <Form.Label>Author</Form.Label>
+            <Form.Label>Author:</Form.Label>
             <Form.Control
               type="text"
               name="author"
@@ -122,7 +124,7 @@ function BookEditForm() {
           ))}
     
           <Form.Group>
-            <Form.Label>Description</Form.Label>
+            <Form.Label>Description:</Form.Label>
             <Form.Control
               type="text"
               name="description"
@@ -137,7 +139,7 @@ function BookEditForm() {
           ))}
     
           <Form.Group>
-            <Form.Label>Number of Pages</Form.Label>
+            <Form.Label>Number of Pages:</Form.Label>
             <Form.Control
               type="number"
               name="number of pages"
@@ -152,7 +154,7 @@ function BookEditForm() {
           ))}
     
           <Form.Group>
-            <Form.Label>Publication Date</Form.Label>
+            <Form.Label>Publication Date:</Form.Label>
             <Form.Control
               type="date"
               name="publication date"
@@ -165,6 +167,21 @@ function BookEditForm() {
               {message}
             </Alert>
           ))}
+
+          <Form.Group>
+          <Form.Label>Find it here:</Form.Label>
+          <Form.Control
+            type="url"
+            name="book_link"
+            value={book_link}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        {errors?.book_link?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
   
         <Button
           className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -181,7 +198,7 @@ function BookEditForm() {
     return (
       <Form onSubmit={handleSubmit}>
         <br />
-        <h2><strong>SUGGEST A BOOK!</strong></h2>
+        <h2><strong>Suggest a Cookbook!</strong></h2>
         <br />
         <Row>
             <Container

@@ -29,9 +29,10 @@ function BookCreateForm() {
     description: "",
     number_of_pages: "",
     publication_date: "",
+    book_link: "",
     image: "",
   });
-  const { title, author, description, number_of_pages, publication_date, image } = bookData;
+  const { title, author, description, number_of_pages, publication_date, book_link, image } = bookData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -73,13 +74,14 @@ function BookCreateForm() {
     formData.append('description', description);
     formData.append('number_of_pages', number_of_pages);
     formData.append('publication_date', publication_date);
+    formData.append('book_link', book_link);
     formData.append("image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/books/", formData);
       history.push(`/books/${data.id}`);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -89,7 +91,7 @@ function BookCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <br />
-      <h2><strong>SUGGEST A BOOK!</strong></h2>
+      <h2><strong>Suggest a Cookbook!</strong></h2>
       <br />
       <Row>
         <Container
@@ -187,7 +189,7 @@ function BookCreateForm() {
           ))}
 
           <Form.Group>
-            <Form.Label>Number of pages:</Form.Label>
+            <Form.Label>Number of Pages:</Form.Label>
             <Form.Control
               type="number"
               name="number_of_pages"
@@ -204,7 +206,7 @@ function BookCreateForm() {
 
         <Row className={styles.RowSpacing}>
           <Form.Group>
-            <Form.Label>Publication date:</Form.Label>
+            <Form.Label>Publication Date:</Form.Label>
             <Form.Control
               type="date"
               name="publication_date"
@@ -218,6 +220,21 @@ function BookCreateForm() {
             </Alert>
           ))}
         </Row>
+
+        <Form.Group>
+          <Form.Label>Find it here:</Form.Label>
+          <Form.Control
+            type="url"
+            name="book_link"
+            value={book_link}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        {errors?.book_link?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
         <br />
         <Row className={styles.RowSpacing}>
           <Button type="submit" className={btnStyles.Button}>

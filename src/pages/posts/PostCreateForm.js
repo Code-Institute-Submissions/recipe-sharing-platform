@@ -201,7 +201,7 @@ function PostCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <br />
-      <h2><strong>POST A RECIPE!</strong></h2>
+      <h2><strong>Post a Recipe!</strong></h2>
       <br />
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>

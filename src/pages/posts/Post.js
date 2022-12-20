@@ -84,7 +84,7 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <br />
-      <h2><strong>Post a recipe!</strong></h2>
+      <h2><strong>Explore Our Recipes!</strong></h2>
       <br />
       <Card.Body>
         <Media className="align-items-center justify-content-between">

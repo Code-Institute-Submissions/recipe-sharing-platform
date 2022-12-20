@@ -23,6 +23,7 @@ function Book(props) {
     description,
     number_of_pages,
     publication_date,
+    book_link,
     image,
     bookPage,
   } = props;
@@ -77,6 +78,7 @@ function Book(props) {
         <p>Description: {description}</p>
         <p>Number of pages: {number_of_pages}</p>
         <p>Publication date: {publication_date}</p>
+        <p>Find it here: {book_link}</p>
       </Col>
       <br />
     </Container>
