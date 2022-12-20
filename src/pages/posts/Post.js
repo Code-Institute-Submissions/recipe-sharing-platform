@@ -24,6 +24,7 @@ const Post = (props) => {
     title,
     ingredients,
     directions,
+    course,
     category,
     image,
     updated_at,
@@ -109,6 +110,7 @@ const Post = (props) => {
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {ingredients && <Card.Text>{ingredients}</Card.Text>}
         {directions && <Card.Text>{directions}</Card.Text>}
+        {course && <Card.Text>{course}</Card.Text>}
         {category && <Card.Text>{category}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (

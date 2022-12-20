@@ -16,3 +16,7 @@ h2 {
 div {
   font-family: 'WildHazelnut';
 }
+
+.RowSpacing {
+  justify-content: space-evenly;
+}

@@ -29,9 +29,10 @@ function PostCreateForm() {
     ingredients: "",
     directions: "",
     image: "",
+    course: "",
     category: "",
   });
-  const { title, ingredients, directions, image, category } = postData;
+  const { title, ingredients, directions, course, category, image  } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -60,6 +61,7 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("ingredients", ingredients);
     formData.append("directions", directions);
+    formData.append("course", course);
     formData.append("category", category);
     formData.append("image", imageInput.current.files[0]);
 
@@ -123,46 +125,66 @@ function PostCreateForm() {
         </Alert>
       ))}
 
-      <Form.Group>
-        <Form.Label>Category:</Form.Label>
-        <Form.Control
-          as="select"
-          defaultValue="Choose..."
-          name="category"
-          value={category}
-          onChange={handleChange}  
-        >
-          <option value="none">None</option>
-          <option value="appetizers_&_snacks">Appetizers & Snacks</option>
-          <option value="breakfast_&_brunch">Breakfast & Brunch</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="desserts">Desserts</option>
-          <option value="main_dishes">Main Dishes</option>
-          <option value="side_dishes">Side Dishes</option>
-          <option value="salads">Salads</option>
-          <option value="condiments">Condiments</option>
-          <option value="soups_&_stews">Soups & Stews</option>
-          <option value="fruits">Fruits</option>
-          <option value="vegetables">Vegetables</option>
-          <option value="legumes">Legumes</option>
-          <option value="grains">Grains</option>
-          <option value="meats">Meats</option>
-          <option value="poultry">Poultry</option>
-          <option value="fish">Fish</option>
-          <option value="seafood">Seafood</option>
-          <option value="eggs">Eggs</option>
-          <option value="mushrooms">Mushrooms</option>
-          <option value="cheese_&_dairy">Cheese & Dairy</option>
-          <option value="nuts_&_seeds">Nuts & Seeds</option>
-          <option value="herbs_&_spices">Herbs & Spices</option>
-        </Form.Control>
-      </Form.Group>
-      {errors?.category?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+      <Row className={styles.RowSpacing}>
+        <Form.Group>
+          <Form.Label>Course:</Form.Label>
+          <Form.Control
+            as="select"
+            defaultValue="Choose..."
+            name="course"
+            value={course}
+            onChange={handleChange}  
+          >
+            <option value="none">None</option>
+            <option value="appetizers_&_snacks">Appetizers & Snacks</option>
+            <option value="breakfast_&_brunch">Breakfast & Brunch</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="desserts">Desserts</option>
+            <option value="main_dishes">Main Dishes</option>
+            <option value="side_dishes">Side Dishes</option>
+            <option value="salads">Salads</option>
+            <option value="condiments">Condiments</option>
+            <option value="soups_&_stews">Soups & Stews</option>
+          </Form.Control>
+        </Form.Group>
+        {errors?.course?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label>Category:</Form.Label>
+          <Form.Control
+            as="select"
+            defaultValue="Choose..."
+            name="category"
+            value={category}
+            onChange={handleChange}  
+          >
+            <option value="none">None</option>
+            <option value="fruits">Fruits</option>
+            <option value="vegetables">Vegetables</option>
+            <option value="legumes">Legumes</option>
+            <option value="grains">Grains</option>
+            <option value="meats">Meats</option>
+            <option value="poultry">Poultry</option>
+            <option value="fish">Fish</option>
+            <option value="seafood">Seafood</option>
+            <option value="eggs">Eggs</option>
+            <option value="mushrooms">Mushrooms</option>
+            <option value="cheese_&_dairy">Cheese & Dairy</option>
+            <option value="nuts_&_seeds">Nuts & Seeds</option>
+            <option value="herbs_&_spices">Herbs & Spices</option>
+          </Form.Control>
+        </Form.Group>
+        {errors?.category?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+      </Row>
 
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
         Post

@@ -66,7 +66,7 @@ function BooksPage({ message, filter = '' }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search books"
+            placeholder="Search books by owner or title"
           />
         </Form>
 
