@@ -29,3 +29,15 @@ h5 {
 .HeartOutline:hover {
   color: orangered;
 }
+
+.Title {
+  font-size: 200%;
+}
+
+.Title:hover {
+  color: orangered;
+}
+
+.Cat {
+  color: orangered;
+}

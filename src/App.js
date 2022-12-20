@@ -23,6 +23,7 @@ import BookEditForm from './pages/books/BookEditForm';
 import BookPage from './pages/books/BookPage';
 import BooksPage from './pages/books/BooksPage';
 import NotFound from "./components/NotFound";
+import About from "./pages/About";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -74,6 +75,7 @@ function App() {
               <BooksPage message="No results found. Adjust the search keyword" />
             )}
           />
+          <Route exact path="/about" render={() => <About />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />

@@ -83,9 +83,6 @@ const Post = (props) => {
 
   return (
     <Card className={styles.Post}>
-      <br />
-      <h2><strong>Explore Our Recipes!</strong></h2>
-      <br />
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
@@ -107,11 +104,11 @@ const Post = (props) => {
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
         {ingredients && <Card.Text>{ingredients}</Card.Text>}
         {directions && <Card.Text>{directions}</Card.Text>}
-        {course && <Card.Text>{course}</Card.Text>}
-        {category && <Card.Text>{category}</Card.Text>}
+        {course && <Card.Text className={styles.Cat}>{course}</Card.Text>}
+        {category && <Card.Text className={styles.Cat}>{category}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger

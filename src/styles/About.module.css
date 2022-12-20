@@ -1,0 +1,46 @@
+@font-face {
+    font-family: WildHazelnut;
+    src: url(WildHazelnut.ttf);
+}
+
+.Content {
+    font-family: 'WildHazelnut';
+    text-align: center;
+}
+
+.Content h2 {
+    font-family: 'WildHazelnut';
+    text-transform: uppercase;
+}
+
+.Content span {
+    color: orangered;
+}
+
+.Content ul {
+    list-style-type: none;
+}
+
+.SocialIconsAlign {
+    justify-content: center;
+}
+
+.SocialIconsAlign a {
+    font-family: 'WildHazelnut';
+    font-size: 175%;
+    padding: 0 5px;
+    color: #000000;
+}
+
+.SocialIconsAlign i {
+    color: orangered;
+}
+
+.SocialIconsAlign a:hover {
+    color: darkorange;
+}
+
+#Disclaimer {
+    font-family: 'WildHazelnut';
+    font-size: 90%;
+}
