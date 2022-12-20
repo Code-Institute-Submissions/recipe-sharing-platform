@@ -20,10 +20,12 @@ function PostEditForm() {
 
   const [postData, setPostData] = useState({
     title: "",
-    content: "",
+    ingredients: "",
+    directions: "",
     image: "",
+    category: "",
   });
-  const { title, content, image } = postData;
+  const { title, ingredients, directions, image, category } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -33,9 +35,9 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, ingredients, directions, image, category, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        is_owner ? setPostData({ title, ingredients, directions, image, category }) : history.push("/");
       } catch (err) {
         //console.log(err);
       }
@@ -66,7 +68,9 @@ function PostEditForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("content", content);
+    formData.append("ingredients", ingredients);
+    formData.append("directions", directions);
+    formData.append("category", category);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -86,7 +90,7 @@ function PostEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Title:</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -101,16 +105,73 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Ingredients:</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
-          name="content"
-          value={content}
+          name="ingredients"
+          value={ingredients}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.ingredients?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Directions:</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={6}
+          name="directions"
+          value={directions}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.directions?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Category:</Form.Label>
+        <Form.Control
+          as="select"
+          defaultValue="Choose..."
+          name="category"
+          value={category}
+          onChange={handleChange}  
+        >
+          <option value="none">None</option>
+          <option value="appetizers_&_snacks">Appetizers & Snacks</option>
+          <option value="breakfast_&_brunch">Breakfast & Brunch</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="desserts">Desserts</option>
+          <option value="main_dishes">Main Dishes</option>
+          <option value="side_dishes">Side Dishes</option>
+          <option value="salads">Salads</option>
+          <option value="condiments">Condiments</option>
+          <option value="soups_&_stews">Soups & Stews</option>
+          <option value="fruits">Fruits</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="legumes">Legumes</option>
+          <option value="grains">Grains</option>
+          <option value="meats">Meats</option>
+          <option value="poultry">Poultry</option>
+          <option value="fish">Fish</option>
+          <option value="seafood">Seafood</option>
+          <option value="eggs">Eggs</option>
+          <option value="mushrooms">Mushrooms</option>
+          <option value="cheese_&_dairy">Cheese & Dairy</option>
+          <option value="nuts_&_seeds">Nuts & Seeds</option>
+          <option value="herbs_&_spices">Herbs & Spices</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.category?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

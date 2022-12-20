@@ -26,10 +26,12 @@ function PostCreateForm() {
 
   const [postData, setPostData] = useState({
     title: "",
-    content: "",
+    ingredients: "",
+    directions: "",
     image: "",
+    category: "",
   });
-  const { title, content, image } = postData;
+  const { title, ingredients, directions, image, category } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -56,7 +58,9 @@ function PostCreateForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("content", content);
+    formData.append("ingredients", ingredients);
+    formData.append("directions", directions);
+    formData.append("category", category);
     formData.append("image", imageInput.current.files[0]);
 
     try {
@@ -88,16 +92,73 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content:</Form.Label>
+        <Form.Label>Ingredients:</Form.Label>
         <Form.Control
           as="textarea"
-          rows={6}
-          name="content"
-          value={content}
+          rows={3}
+          name="ingredients"
+          value={ingredients}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
+      {errors?.ingredients?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+    
+      <Form.Group>
+        <Form.Label>Directions:</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={3}
+          name="directions"
+          value={directions}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.directions?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Category:</Form.Label>
+        <Form.Control
+          as="select"
+          defaultValue="Choose..."
+          name="category"
+          value={category}
+          onChange={handleChange}  
+        >
+          <option value="none">None</option>
+          <option value="appetizers_&_snacks">Appetizers & Snacks</option>
+          <option value="breakfast_&_brunch">Breakfast & Brunch</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="desserts">Desserts</option>
+          <option value="main_dishes">Main Dishes</option>
+          <option value="side_dishes">Side Dishes</option>
+          <option value="salads">Salads</option>
+          <option value="condiments">Condiments</option>
+          <option value="soups_&_stews">Soups & Stews</option>
+          <option value="fruits">Fruits</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="legumes">Legumes</option>
+          <option value="grains">Grains</option>
+          <option value="meats">Meats</option>
+          <option value="poultry">Poultry</option>
+          <option value="fish">Fish</option>
+          <option value="seafood">Seafood</option>
+          <option value="eggs">Eggs</option>
+          <option value="mushrooms">Mushrooms</option>
+          <option value="cheese_&_dairy">Cheese & Dairy</option>
+          <option value="nuts_&_seeds">Nuts & Seeds</option>
+          <option value="herbs_&_spices">Herbs & Spices</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.category?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
