@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Col, Container, Media } from 'react-bootstrap';
+import Media from "react-bootstrap/Media";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../components/Avatar';
 import styles from '../../styles/Book.module.css';
 
-/**
- * Render the data of a single book.
- */
+
 function Book(props) {
   const {
     id,
@@ -47,20 +47,25 @@ function Book(props) {
       await axiosRes.delete(`/books/${id}/`);
       history.goBack();
     } catch (err) {
-    //   console.log(err);
+      // console.log(err);
     }
   };
 
   return (
     <Container className={styles.Container}>
       <br />
-      <Media className={styles.TopRow}>
-        <Link to={`profiles/${profile_id}`} className={styles.Username}>
+      <Link className={styles.OnHover} to={`/events/${id}`}>
+        <h2 className={styles.OnHover}>
+          <strong>{title}</strong>
+        </h2>
+      </Link>
+      <p>Last updated: {updated_at}</p>
+      <Media>
+        <Link to={`profiles/${profile_id}`} className={styles.OnHover}>
           <Avatar src={profile_image} height={30} />
           <h2 className={styles.OnHover}>Suggested by: {owner}</h2>
-          <p className={styles.OnHover}>{created_at}</p>
-          <p className={styles.OnHover}>{updated_at}</p>
         </Link>
+
         {is_owner && bookPage && (
           <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
         )}
@@ -78,9 +83,25 @@ function Book(props) {
         <p>Description: {description}</p>
         <p>Number of pages: {number_of_pages}</p>
         <p>Publication date: {publication_date}</p>
-        <p>Find it here: {book_link}</p>
+        <p>
+          Find it
+          {' '}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={book_link}
+            className={styles.OnHover}
+          >
+            <strong>HERE</strong>
+          </a>
+        </p>
+        <p>
+          Submitted:
+          {' '}
+          {created_at}
+        </p>
+        <br />
       </Col>
-      <br />
     </Container>
   );
 }

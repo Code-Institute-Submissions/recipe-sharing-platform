@@ -32,6 +32,7 @@ function BookCreateForm() {
     book_link: "",
     image: "",
   });
+
   const { title, author, description, number_of_pages, publication_date, book_link, image } = bookData;
 
   const imageInput = useRef(null);
@@ -62,24 +63,25 @@ function BookCreateForm() {
   };
 
   /**
-   * Pust data to API.
-   * Direct user to book page.
+   * Push data to API.
+   * Redirect user to book page.
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append('author', author);
-    formData.append('description', description);
-    formData.append('number_of_pages', number_of_pages);
-    formData.append('publication_date', publication_date);
-    formData.append('book_link', book_link);
+    formData.append("author", author);
+    formData.append("description", description);
+    formData.append("number_of_pages", number_of_pages);
+    formData.append("publication_date", publication_date);
+    formData.append("book_link", book_link);
     formData.append("image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/books/", formData);
       history.push(`/books/${data.id}`);
+      // console.log(formData);
     } catch (err) {
       //console.log(err);
       if (err.response?.status !== 401) {
@@ -91,163 +93,170 @@ function BookCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <br />
-      <h2><strong>Suggest a Cookbook!</strong></h2>
+      <h2>
+        <strong>Suggest a Cookbook!</strong>
+      </h2>
       <br />
-      <Row>
-        <Container
+        <Row>
+          <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-          <Form.Group className="text-center">
-            {image ? (
-              <>
-                <figure>
-                  <Image className={appStyles.Image} src={image} rounded />
-                </figure>
-                <div>
-                  <Form.Label
-                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                    htmlFor="image-upload"
-                  >
-                    Change the image
-                  </Form.Label>
-                </div>
-              </>
-            ) : (
-              <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="image-upload"
-              >
-                <Asset
-                  src={Upload}
-                  message="Click or tap to upload an image"
-                />
-              </Form.Label>
-            )}
+            <Form.Group className="text-center">
+              {image ? (
+                <>
+                  <figure>
+                    <Image className={appStyles.Image} src={image} rounded />
+                  </figure>
+                  <div>
+                    <Form.Label
+                      className={`${btnStyles.Button} ${btnStyles.Orange} btn`}
+                      htmlFor="image-upload"
+                    >
+                      Change the image
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
+                  className="d-flex justify-content-center"
+                  htmlFor="image-upload"
+                >
+                  <Asset
+                    src={Upload}
+                    message="Click or tap to upload an image"
+                  />
+                </Form.Label>
+              )}
 
-            <Form.File
-              id="image-upload"
-              accept="image/*"
-              onChange={handleChangeImage}
-              ref={imageInput}
-            />
-          </Form.Group>
-          {errors?.image?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-        </Container>
-      </Row>
-      <br />
+              <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
+              />
+            </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+          </Container>
+        </Row>
+        <br />
+
       <Container className={styles.FormAlignment}>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label>Title:</Form.Label>
-          <Form.Control
-            type="text"
-            name="title"
-            value={title}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        {errors?.title?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-
-        <Form.Group>
-          <Form.Label>Description:</Form.Label>
-          <Form.Control
-            type="text"
-            rows={8}
-            name="description"
-            value={description}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        {errors?.description?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-
-        <Row className={styles.RowSpacing}>
+        <Form onSubmit={handleSubmit}>
           <Form.Group>
-            <Form.Label>Author:</Form.Label>
+            <Form.Label>Title:</Form.Label>
             <Form.Control
               type="text"
-              name="author"
-              value={author}
+              name="title"
+              value={title}
               onChange={handleChange}
             />
           </Form.Group>
-          {errors?.author?.map((message, idx) => (
+          {errors?.title?.map((message, idx) => (
             <Alert variant="danger" key={idx}>
               {message}
             </Alert>
           ))}
 
           <Form.Group>
-            <Form.Label>Number of Pages:</Form.Label>
+            <Form.Label>Description:</Form.Label>
             <Form.Control
-              type="number"
-              name="number_of_pages"
-              value={number_of_pages}
+              as="textarea"
+              rows={6}
+              name="description"
+              value={description}
               onChange={handleChange}
             />
           </Form.Group>
-          {errors?.number_of_pages?.map((message, idx) => (
+          {errors?.description?.map((message, idx) => (
             <Alert variant="danger" key={idx}>
               {message}
             </Alert>
           ))}
-        </Row>
 
-        <Row className={styles.RowSpacing}>
+          <Row className={styles.RowSpacing}>
+            <Form.Group>
+              <Form.Label>Author:</Form.Label>
+              <Form.Control
+                type="text"
+                name="author"
+                value={author}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.author?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group>
+              <Form.Label>Number of Pages:</Form.Label>
+              <Form.Control
+                type="number"
+                name="number_of_pages"
+                value={number_of_pages}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.number_of_pages?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group>
+              <Form.Label>Publication Date:</Form.Label>
+              <Form.Control
+                type="date"
+                name="publication_date"
+                value={publication_date}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.publication_date?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
+          </Row>
+
           <Form.Group>
-            <Form.Label>Publication Date:</Form.Label>
+            <Form.Label>Find it here:</Form.Label>
             <Form.Control
-              type="date"
-              name="publication_date"
-              value={publication_date}
+              type="url"
+              name="book_link"
+              value={book_link}
               onChange={handleChange}
             />
           </Form.Group>
-          {errors?.publication_date?.map((message, idx) => (
+          {errors?.book_link?.map((message, idx) => (
             <Alert variant="danger" key={idx}>
               {message}
             </Alert>
           ))}
-        </Row>
+          <br />
 
-        <Form.Group>
-          <Form.Label>Find it here:</Form.Label>
-          <Form.Control
-            type="url"
-            name="book_link"
-            value={book_link}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        {errors?.book_link?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-        <br />
-        <Row className={styles.RowSpacing}>
-          <Button type="submit" className={btnStyles.Button}>
-            Add
-          </Button>
+          <Row className={styles.RowSpacing}>
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
+              type="submit"
+            >
+              Suggest
+            </Button>
 
-          <Button onClick={() => history.goBack()} className={btnStyles.Button}>
-            Cancel
-          </Button>
-        </Row>
-        <br />
-      </Form>
-    </Container>
+            <Button onClick={() => history.goBack()}
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
+            >
+              Cancel
+            </Button>
+          </Row>
+          <br />
+        </Form>
+      </Container>
     </Form>
   );
 }

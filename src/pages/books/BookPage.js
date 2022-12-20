@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import Container from "react-bootstrap/Container";
+
 import { useParams } from 'react-router-dom';
-import { Container, Col } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
+
 import Book from './Book';
 
-/**
- * Display single books details.
- */
+
 function BookPage() {
   const { id } = useParams();
   const [book, setBook] = useState({ results: [] });
 
-  /**
-   * Retrieve books data from API.
-   */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -31,9 +29,7 @@ function BookPage() {
 
   return (
     <Container>
-      <Col>
         <Book {...book.results[0]} setBook={setBook} bookPage />
-      </Col>
     </Container>
   );
 }

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+
+import Container from "react-bootstrap/Container";
+
 import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
+
 import Event from './Event';
 
 

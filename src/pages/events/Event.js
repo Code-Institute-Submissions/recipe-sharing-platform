@@ -20,8 +20,7 @@ function Event(props) {
     content,
     date,
     time,
-    city,
-    country,
+    location,
     price,
     event_link,
     eventPage,
@@ -62,19 +61,20 @@ function Event(props) {
       <Media>
         <Link to={`events/${profile_id}`} className={styles.OnHover}>
           <Avatar src={profile_image} height={30} />
-          <p className={styles.OnHover}>By: {owner}</p>
+          <p className={styles.OnHover}>Submitted by: {owner}</p>
         </Link>
 
         {is_owner && eventPage && (
           <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
         )}
       </Media>
+
       <p>{content}</p>
       <p>
         Date: {date} | Time: {time} | Admission: ${price}
       </p>
       <p>
-        Location: {city}, {country}
+        Location: {location}
       </p>
       <p>
         For more information, visit the event page:
@@ -93,6 +93,7 @@ function Event(props) {
         {' '}
         {created_at}
       </p>
+      <br />
     </Container>
   );
 }

@@ -149,6 +149,7 @@ const NavBar = () => {
             </NavLink>
 
             <NavLink
+              exact
               to="/events"
               className={styles.NavLink}
               activeClassName={styles.Active}
@@ -157,6 +158,7 @@ const NavBar = () => {
             </NavLink>
       
             <NavLink
+              exact
               to="/books"
               className={styles.NavLink}
               activeClassName={styles.Active}

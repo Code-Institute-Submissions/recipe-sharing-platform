@@ -22,14 +22,13 @@ function EditEventForm() {
     content: '',
     date: '',
     time: '',
-    city: '',
-    country: '',
+    location: '',
     price: '',
     event_link: '',
   });
 
   const {
-    title, content, date, time, city, country, price, event_link,
+    title, content, date, time, location, price, event_link,
   } = eventData;
 
   const history = useHistory();
@@ -47,8 +46,7 @@ function EditEventForm() {
           content,
           date,
           time,
-          city,
-          country,
+          location,
           price,
           event_link,
           is_owner,
@@ -59,8 +57,7 @@ function EditEventForm() {
           content,
           date,
           time,
-          city,
-          country,
+          location,
           price,
           event_link,
         }) : history.push('/');
@@ -94,8 +91,7 @@ function EditEventForm() {
     formData.append('content', content);
     formData.append('date', date);
     formData.append('time', time);
-    formData.append('city', city);
-    formData.append('country', country);
+    formData.append('location', location);
     formData.append('price', price);
     formData.append('event_link', event_link);
 
@@ -126,7 +122,6 @@ function EditEventForm() {
             name="title"
             value={title}
             onChange={handleChange}
-            aria-label="title"
           />
         </Form.Group>
         {errors?.title?.map((message, idx) => (
@@ -136,14 +131,13 @@ function EditEventForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Content:</Form.Label>
+          <Form.Label>Description:</Form.Label>
           <Form.Control
             as="textarea"
             rows={6}
             name="content"
             value={content}
             onChange={handleChange}
-            aria-label="content"
           />
         </Form.Group>
         {errors?.content?.map((message, idx) => (
@@ -154,39 +148,20 @@ function EditEventForm() {
 
         <Row className={styles.RowSpacing}>
           <Form.Group>
-            <Form.Label>City:</Form.Label>
+            <Form.Label>Location:</Form.Label>
             <Form.Control
               type="text"
-              name="city"
-              value={city}
+              name="location"
+              value={location}
               onChange={handleChange}
-              aria-label="city"
             />
           </Form.Group>
-          {errors?.city?.map((message, idx) => (
+          {errors?.location?.map((message, idx) => (
             <Alert variant="danger" key={idx}>
               {message}
             </Alert>
           ))}
 
-          <Form.Group>
-            <Form.Label>Country:</Form.Label>
-            <Form.Control
-              type="text"
-              name="country"
-              value={country}
-              onChange={handleChange}
-              aria-label="country"
-            />
-          </Form.Group>
-          {errors?.country?.map((message, idx) => (
-            <Alert variant="danger" key={idx}>
-              {message}
-            </Alert>
-          ))}
-        </Row>
-
-        <Row className={styles.RowSpacing}>
           <Form.Group>
             <Form.Label>Date:</Form.Label>
             <Form.Control
@@ -254,11 +229,11 @@ function EditEventForm() {
 
         <br />
         <Row className={styles.RowSpacing}>
-          <Button type="submit" className={btnStyles.Button}>
+          <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Bright}`}>
             Submit
           </Button>
 
-          <Button onClick={() => history.goBack()} className={btnStyles.Button}>
+          <Button onClick={() => history.goBack()} className={`${btnStyles.Button} ${btnStyles.Bright}`}>
             Cancel
           </Button>
         </Row>

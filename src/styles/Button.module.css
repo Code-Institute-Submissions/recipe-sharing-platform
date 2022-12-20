@@ -41,16 +41,16 @@
   width: 100%;
 }
   
-.Blue,
-.BlueOutline:hover,
+.Orange,
+.OrangeOutline:hover,
 .Bright:hover {
   font-family: 'WildHazelnut';
   background-color: orangered;
   color: #ffffff;
 }
   
-.BlueOutline,
-.Blue:hover {
+.OrangeOutline,
+.Orange:hover {
   font-family: 'WildHazelnut';
   background-color: #ffffff;
   color: orangered;

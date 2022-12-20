@@ -126,7 +126,7 @@ function BookEditForm() {
           <Form.Group>
             <Form.Label>Description:</Form.Label>
             <Form.Control
-              type="text"
+              as="textarea"
               name="description"
               value={description}
               onChange={handleChange}
@@ -184,12 +184,12 @@ function BookEditForm() {
         ))}
   
         <Button
-          className={`${btnStyles.Button} ${btnStyles.Blue}`}
+          className={`${btnStyles.Button} ${btnStyles.Bright}`}
           onClick={() => history.goBack()}
         >
           Cancel
         </Button>
-        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
           Save
         </Button>
       </div>
@@ -210,7 +210,7 @@ function BookEditForm() {
                 </figure>
                 <div>
                   <Form.Label
-                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                    className={`${btnStyles.Button} ${btnStyles.Orange} btn`}
                     htmlFor="image-upload"
                   >
                     Change the image

@@ -9,12 +9,13 @@ import Alert from "react-bootstrap/Alert";
 import { useHistory } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 import { useRedirect } from '../../hooks/useRedirect';
+
 import styles from '../../styles/EventCreateEditForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
 
 function EventCreateForm() {
-  useRedirect('loggedout');
+  useRedirect('loggedOut');
   const [errors, setErrors] = useState({});
 
   const [eventData, setEventData] = useState({
@@ -22,14 +23,13 @@ function EventCreateForm() {
     content: '',
     date: '',
     time: '',
-    city: '',
-    country: '',
+    location: '',
     price: '',
     event_link: '',
   });
 
   const {
-    title, content, date, time, city, country, price, event_link,
+    title, content, date, time, location, price, event_link,
   } = eventData;
 
   const history = useHistory();
@@ -56,8 +56,7 @@ function EventCreateForm() {
     formData.append('content', content);
     formData.append('date', date);
     formData.append('time', time);
-    formData.append('city', city);
-    formData.append('country', country);
+    formData.append('location', location);
     formData.append('price', price);
     formData.append('event_link', event_link);
 
@@ -88,7 +87,6 @@ function EventCreateForm() {
             name="title"
             value={title}
             onChange={handleChange}
-            aria-label="title"
           />
         </Form.Group>
         {errors?.title?.map((message, idx) => (
@@ -98,14 +96,13 @@ function EventCreateForm() {
         ))}
 
         <Form.Group>
-          <Form.Label>Content:</Form.Label>
+          <Form.Label>Description:</Form.Label>
           <Form.Control
             as="textarea"
             rows={6}
             name="content"
             value={content}
             onChange={handleChange}
-            aria-label="content"
           />
         </Form.Group>
         {errors?.content?.map((message, idx) => (
@@ -116,32 +113,15 @@ function EventCreateForm() {
 
         <Row className={styles.RowSpacing}>
           <Form.Group>
-            <Form.Label>City:</Form.Label>
+            <Form.Label>Location:</Form.Label>
             <Form.Control
               type="text"
-              name="city"
-              value={city}
+              name="location"
+              value={location}
               onChange={handleChange}
-              aria-label="city"
             />
           </Form.Group>
-          {errors?.city?.map((message, idx) => (
-            <Alert variant="danger" key={idx}>
-              {message}
-            </Alert>
-          ))}
-
-          <Form.Group>
-            <Form.Label>Country:</Form.Label>
-            <Form.Control
-              type="text"
-              name="country"
-              value={country}
-              onChange={handleChange}
-              aria-label="country"
-            />
-          </Form.Group>
-          {errors?.country?.map((message, idx) => (
+          {errors?.location?.map((message, idx) => (
             <Alert variant="danger" key={idx}>
               {message}
             </Alert>
@@ -213,18 +193,18 @@ function EventCreateForm() {
             {message}
           </Alert>
         ))}
-
         <br />
+
         <Row className={styles.RowSpacing}>
           <Button
-            className={`${btnStyles.Button} ${btnStyles.Bright}`}
+            className={`${btnStyles.Button} ${btnStyles.Orange}`}
             type="submit"
           >
             Submit
           </Button>
 
           <Button onClick={() => history.goBack()}
-            className={`${btnStyles.Button} ${btnStyles.Bright}`}
+            className={`${btnStyles.Button} ${btnStyles.Orange}`}
           >
             Cancel
           </Button>
