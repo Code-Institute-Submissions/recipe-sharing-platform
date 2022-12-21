@@ -1,16 +1,20 @@
-# Recipe Sharin Platform
+# Recipe Sharing Platform
+Recipe Sharing Platform is a recipes & social media platform for home chefs and & food-lovers alike. Here, users can find recipes, along with upcoming cooking events both in their local cities and online, and find out about cookbooks suggested by other members of the community. Users are invited to interact with each other by sharing recipes, cookbooks and cooking experiences.
+<br />
+
+The repository for the DRF-API associated with this project is available [HERE](https://github.com/Yari-Carelli/Recipe-Sharing-Platform-DRF-API). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API. 
 
 
-#### DEPLOYED API HEROKU [LINK]()
-#### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE]()
-#### DEPLOYED BACKEND GITHUB [REPOSITORY]()
+#### DEPLOYED API HEROKU [LINK](https://recipe-sharing-platform-api.herokuapp.com/)
+#### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://recipe-sharing-platform-yc.herokuapp.com/)
+#### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/Yari-Carelli/Recipe-Sharing-Platform-DRF-API)
 
 ![Site view across devices](src/assets/images-readme/.png)
 
 
 ## Table of Contents
 + [UX](#ux "UX")
-  + [Site Purpose](#site-purpose "Site Purpose")
+  + [Site Purpose](#site-purpose "Site Purpose")l
   + [Site Goal](#site-goal "Site Goal")
   + [Audience](#audience "Audience")
   + [Communication](#communication "Communication")

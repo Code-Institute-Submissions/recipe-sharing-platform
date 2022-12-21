@@ -97,9 +97,8 @@ function PostCreateForm() {
 
       <Form.Group>
         <Form.Label>Ingredients:</Form.Label>
-        <Form.Control
+        <Form.Control 
           as="textarea"
-          rows={3}
           name="ingredients"
           value={ingredients}
           onChange={handleChange}
@@ -115,7 +114,6 @@ function PostCreateForm() {
         <Form.Label>Directions:</Form.Label>
         <Form.Control
           as="textarea"
-          rows={3}
           name="directions"
           value={directions}
           onChange={handleChange}

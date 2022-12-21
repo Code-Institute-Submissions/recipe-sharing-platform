@@ -57,7 +57,7 @@ const Book = (props) => {
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
-            <p>Suggested by: {owner}</p>
+            <p><span className={styles.OnHover}>Suggested by:</span> {owner}</p>
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
@@ -75,10 +75,10 @@ const Book = (props) => {
       </Link>
       <Card.Body>
         {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
-        {author && <Card.Text><p className={styles.OnHover}>By:</p> {author}</Card.Text>}
-        {description && <Card.Text><p className={styles.OnHover}>Introduction:</p> {description}</Card.Text>}
-        {number_of_pages && <Card.Text><p className={styles.OnHover}>Pages:</p> {number_of_pages}</Card.Text>}
-        {publication_date && <Card.Text><p className={styles.OnHover}>Publication Date:</p> {publication_date}</Card.Text>}
+        {author && <Card.Text><p><span className={styles.OnHover}>By:</span> {author}</p></Card.Text>}
+        {description && <Card.Text><p><span className={styles.OnHover}>Introduction:</span> {description}</p></Card.Text>}
+        {number_of_pages && <Card.Text><p><span className={styles.OnHover}>Pages:</span> {number_of_pages}</p></Card.Text>}
+        {publication_date && <Card.Text><p><span className={styles.OnHover}>Publication Date:</span> {publication_date}</p></Card.Text>}
         {book_link && <Card.Text>
           <p>
             Find it
