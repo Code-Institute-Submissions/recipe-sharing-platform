@@ -3,44 +3,29 @@
   src: url(WildHazelnut.ttf);
 }
 
-.Container {
+.Post {
   font-family: 'WildHazelnut';
-  border-bottom: 1px solid #000000;
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+  
+.Post figure,
+h5 {
+  font-family: 'WildHazelnut';
+  margin: 0 0;
 }
 
-.Username h2,
-.Username p {
-  font-family: 'WildHazelnut';
-  color: black; 
+.Title {
+  font-size: 200%;
 }
 
-.Username h2 {
-  font-family: 'WildHazelnut';
-  font-size: 150%;
-  text-transform: uppercase;
-}
-
-.Username:hover {
-  text-decoration: none;
-  font-family: 'WildHazelnut';
-}
-
-.OnHover:hover {
-  font-family: 'WildHazelnut';
+.Title:hover {
   color: orangered;
-  text-decoration: none;
 }
 
-.TopRow {
-  font-family: 'WildHazelnut';
-  justify-content: space-between;
-}
-
-.Content h2 {
-  font-family: 'WildHazelnut';
-  text-transform: uppercase;
-}
-
-.Content img {
-  width: 100%;
+.Cat {
+  color: orangered;
 }

@@ -1,22 +1,22 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import Media from "react-bootstrap/Media";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
+import styles from '../../styles/Book.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+
+import Media from "react-bootstrap/Media";
+import Card from "react-bootstrap/Card";
+
+import { Link, useHistory } from 'react-router-dom';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../components/Avatar';
-import styles from '../../styles/Book.module.css';
 
 
-function Book(props) {
+const Book = (props) => {
   const {
     id,
     owner,
     profile_id,
     profile_image,
-    created_at,
     updated_at,
     title,
     author,
@@ -52,58 +52,37 @@ function Book(props) {
   };
 
   return (
-    <Container className={styles.Container}>
-      <br />
-      <Link className={styles.OnHover} to={`/events/${id}`}>
-        <h2 className={styles.OnHover}>
-          <strong>{title}</strong>
-        </h2>
+    <Card className={styles.Post}>
+      <Card.Body>
+        <Media className="align-items-center justify-content-between">
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} height={55} />
+            {owner}
+          </Link>
+          <div className="d-flex align-items-center">
+            <span>{updated_at}</span>
+            {is_owner && bookPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
+          </div>
+        </Media>
+      </Card.Body>
+      <Link to={`/books/${id}`}>
+        <Card.Img src={image} alt={title} />
       </Link>
-      <p>Last updated: {updated_at}</p>
-      <Media>
-        <Link to={`profiles/${profile_id}`} className={styles.OnHover}>
-          <Avatar src={profile_image} height={30} />
-          <h2 className={styles.OnHover}>Suggested by: {owner}</h2>
-        </Link>
-
-        {is_owner && bookPage && (
-          <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
-        )}
-      </Media>
-
-      <Col className={styles.Content}>
-        <Link to={`/books/${id}`}>
-          <img src={image} alt={title} />
-        </Link>
-        <br />
-        <h2>
-          <strong>{title}</strong>
-        </h2>
-        <p>Author: {author}</p>
-        <p>Description: {description}</p>
-        <p>Number of pages: {number_of_pages}</p>
-        <p>Publication date: {publication_date}</p>
-        <p>
-          Find it
-          {' '}
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={book_link}
-            className={styles.OnHover}
-          >
-            <strong>HERE</strong>
-          </a>
-        </p>
-        <p>
-          Submitted:
-          {' '}
-          {created_at}
-        </p>
-        <br />
-      </Col>
-    </Container>
+      <Card.Body>
+        {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
+        {author && <Card.Text>{author}</Card.Text>}
+        {description && <Card.Text>{description}</Card.Text>}
+        {number_of_pages && <Card.Text>{number_of_pages}</Card.Text>}
+        {publication_date && <Card.Text>{publication_date}</Card.Text>}
+        {book_link && <Card.Text>{book_link}</Card.Text>}
+      </Card.Body>
+    </Card>
   );
-}
+};
 
 export default Book;

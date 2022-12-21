@@ -84,139 +84,37 @@ function BookEditForm() {
         await axiosReq.put(`/books/${id}/`, formData);
         history.push(`/books/${id}`);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         if (err.response?.status !== 401) {
           setErrors(err.response?.data);
         }
       }
     };
   
-    const textFields = (
-        <div className="text-center">
-          <Form.Group>
-            <Form.Label>Title:</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              value={title}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors?.title?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-    
-          <Form.Group>
-            <Form.Label>Author:</Form.Label>
-            <Form.Control
-              type="text"
-              name="author"
-              value={author}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors?.author?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-    
-          <Form.Group>
-            <Form.Label>Description:</Form.Label>
-            <Form.Control
-              as="textarea"
-              name="description"
-              value={description}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors?.description?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-    
-          <Form.Group>
-            <Form.Label>Number of Pages:</Form.Label>
-            <Form.Control
-              type="number"
-              name="number of pages"
-              value={number_of_pages}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors?.content?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-    
-          <Form.Group>
-            <Form.Label>Publication Date:</Form.Label>
-            <Form.Control
-              type="date"
-              name="publication date"
-              value={publication_date}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors?.publication_date?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-
-          <Form.Group>
-          <Form.Label>Find it here:</Form.Label>
-          <Form.Control
-            type="url"
-            name="book_link"
-            value={book_link}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        {errors?.book_link?.map((message, idx) => (
-          <Alert variant="danger" key={idx}>
-            {message}
-          </Alert>
-        ))}
-  
-        <Button
-          className={`${btnStyles.Button} ${btnStyles.Bright}`}
-          onClick={() => history.goBack()}
-        >
-          Cancel
-        </Button>
-        <Button className={`${btnStyles.Button} ${btnStyles.Bright}`} type="submit">
-          Save
-        </Button>
-      </div>
-    );
-  
     return (
       <Form onSubmit={handleSubmit}>
         <br />
-        <h2><strong>Suggest a Cookbook!</strong></h2>
+        <h2>
+          <strong>Suggest a Cookbook!</strong>
+        </h2>
         <br />
-        <Row>
+          <Row>
             <Container
               className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
             >
               <Form.Group className="text-center">
-                <figure>
-                  <Image className={appStyles.Image} src={image} rounded />
-                </figure>
-                <div>
-                  <Form.Label
-                    className={`${btnStyles.Button} ${btnStyles.Orange} btn`}
-                    htmlFor="image-upload"
-                  >
-                    Change the image
-                  </Form.Label>
-                </div>
-  
+                    <figure>
+                      <Image className={appStyles.Image} src={image} rounded />
+                    </figure>
+                    <div>
+                      <Form.Label
+                        className={`${btnStyles.Button} ${btnStyles.Orange} btn`}
+                        htmlFor="image-upload"
+                      >
+                        Change the image
+                      </Form.Label>
+                    </div>
+   
                 <Form.File
                   id="image-upload"
                   accept="image/*"
@@ -229,11 +127,123 @@ function BookEditForm() {
                   {message}
                 </Alert>
               ))}
-  
-              <div className="d-md-none">{textFields}</div>
             </Container>
-            <Container className={appStyles.Content}>{textFields}</Container>
-        </Row>
+          </Row>
+          <br />
+  
+        <Container className={styles.FormAlignment}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>Title:</Form.Label>
+              <Form.Control
+                type="text"
+                name="title"
+                value={title}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.title?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
+  
+            <Form.Group>
+              <Form.Label>Description:</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={6}
+                name="description"
+                value={description}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.description?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
+  
+            <Row className={styles.RowSpacing}>
+              <Form.Group>
+                <Form.Label>Author:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="author"
+                  value={author}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors?.author?.map((message, idx) => (
+                <Alert variant="danger" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+  
+              <Form.Group>
+                <Form.Label>Number of Pages:</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="number_of_pages"
+                  value={number_of_pages}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors?.number_of_pages?.map((message, idx) => (
+                <Alert variant="danger" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+  
+              <Form.Group>
+                <Form.Label>Publication Date:</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="publication_date"
+                  value={publication_date}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors?.publication_date?.map((message, idx) => (
+                <Alert variant="danger" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+            </Row>
+  
+            <Form.Group>
+              <Form.Label>Find it here:</Form.Label>
+              <Form.Control
+                type="url"
+                name="book_link"
+                value={book_link}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.book_link?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
+            <br />
+  
+            <Row className={styles.RowSpacing}>
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Orange}`}
+                type="submit"
+              >
+                Suggest
+              </Button>
+  
+              <Button onClick={() => history.goBack()}
+                className={`${btnStyles.Button} ${btnStyles.Orange}`}
+              >
+                Cancel
+              </Button>
+            </Row>
+            <br />
+          </Form>
+        </Container>
       </Form>
     );
   }

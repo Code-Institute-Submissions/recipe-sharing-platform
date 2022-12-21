@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
-import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 
 import Book from './Book';
+
+import PopularProfiles from "../profiles/PopularProfiles";
 
 
 function BookPage() {
@@ -28,9 +31,15 @@ function BookPage() {
   }, [id]);
 
   return (
-    <Container>
+    <Row className="h-100">
+      <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <PopularProfiles mobile />
         <Book {...book.results[0]} setBook={setBook} bookPage />
-    </Container>
+      </Col>
+      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles />
+      </Col>
+    </Row>
   );
 }
 

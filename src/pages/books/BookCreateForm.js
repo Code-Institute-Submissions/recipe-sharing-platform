@@ -19,6 +19,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
+
 function BookCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
@@ -81,9 +82,8 @@ function BookCreateForm() {
     try {
       const { data } = await axiosReq.post("/books/", formData);
       history.push(`/books/${data.id}`);
-      // console.log(formData);
     } catch (err) {
-      //console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
