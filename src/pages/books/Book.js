@@ -57,7 +57,7 @@ const Book = (props) => {
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
-            {owner}
+            <p>Suggested by: {owner}</p>
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
@@ -75,11 +75,23 @@ const Book = (props) => {
       </Link>
       <Card.Body>
         {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
-        {author && <Card.Text>{author}</Card.Text>}
-        {description && <Card.Text>{description}</Card.Text>}
-        {number_of_pages && <Card.Text>{number_of_pages}</Card.Text>}
-        {publication_date && <Card.Text>{publication_date}</Card.Text>}
-        {book_link && <Card.Text>{book_link}</Card.Text>}
+        {author && <Card.Text><p className={styles.OnHover}>By:</p> {author}</Card.Text>}
+        {description && <Card.Text><p className={styles.OnHover}>Introduction:</p> {description}</Card.Text>}
+        {number_of_pages && <Card.Text><p className={styles.OnHover}>Pages:</p> {number_of_pages}</Card.Text>}
+        {publication_date && <Card.Text><p className={styles.OnHover}>Publication Date:</p> {publication_date}</Card.Text>}
+        {book_link && <Card.Text>
+          <p>
+            Find it
+            {' '}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={book_link}
+              className={styles.OnHover}
+            >
+              <strong>HERE</strong>
+            </a>
+          </p></Card.Text>}
       </Card.Body>
     </Card>
   );

@@ -132,117 +132,115 @@ function BookEditForm() {
           <br />
   
         <Container className={styles.FormAlignment}>
-          <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label>Title:</Form.Label>
+            <Form.Control
+              type="text"
+              name="title"
+              value={title}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.title?.map((message, idx) => (
+            <Alert variant="danger" key={idx}>
+              {message}
+            </Alert>
+          ))}
+  
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={6}
+              name="description"
+              value={description}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.description?.map((message, idx) => (
+            <Alert variant="danger" key={idx}>
+              {message}
+            </Alert>
+          ))}
+  
+          <Row className={styles.RowSpacing}>
             <Form.Group>
-              <Form.Label>Title:</Form.Label>
+              <Form.Label>Author:</Form.Label>
               <Form.Control
                 type="text"
-                name="title"
-                value={title}
+                name="author"
+                value={author}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors?.title?.map((message, idx) => (
+            {errors?.author?.map((message, idx) => (
               <Alert variant="danger" key={idx}>
                 {message}
               </Alert>
             ))}
   
             <Form.Group>
-              <Form.Label>Description:</Form.Label>
+              <Form.Label>Number of Pages:</Form.Label>
               <Form.Control
-                as="textarea"
-                rows={6}
-                name="description"
-                value={description}
+                type="number"
+                name="number_of_pages"
+                value={number_of_pages}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors?.description?.map((message, idx) => (
+            {errors?.number_of_pages?.map((message, idx) => (
               <Alert variant="danger" key={idx}>
                 {message}
               </Alert>
             ))}
-  
-            <Row className={styles.RowSpacing}>
-              <Form.Group>
-                <Form.Label>Author:</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="author"
-                  value={author}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              {errors?.author?.map((message, idx) => (
-                <Alert variant="danger" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-  
-              <Form.Group>
-                <Form.Label>Number of Pages:</Form.Label>
-                <Form.Control
-                  type="number"
-                  name="number_of_pages"
-                  value={number_of_pages}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              {errors?.number_of_pages?.map((message, idx) => (
-                <Alert variant="danger" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-  
-              <Form.Group>
-                <Form.Label>Publication Date:</Form.Label>
-                <Form.Control
-                  type="date"
-                  name="publication_date"
-                  value={publication_date}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              {errors?.publication_date?.map((message, idx) => (
-                <Alert variant="danger" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-            </Row>
   
             <Form.Group>
-              <Form.Label>Find it here:</Form.Label>
+              <Form.Label>Publication Date:</Form.Label>
               <Form.Control
-                type="url"
-                name="book_link"
-                value={book_link}
+                type="date"
+                name="publication_date"
+                value={publication_date}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors?.book_link?.map((message, idx) => (
+            {errors?.publication_date?.map((message, idx) => (
               <Alert variant="danger" key={idx}>
                 {message}
               </Alert>
             ))}
-            <br />
+          </Row>
   
-            <Row className={styles.RowSpacing}>
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Orange}`}
-                type="submit"
-              >
-                Suggest
-              </Button>
+          <Form.Group>
+            <Form.Label>Find it here:</Form.Label>
+            <Form.Control
+              type="url"
+              name="book_link"
+              value={book_link}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.book_link?.map((message, idx) => (
+            <Alert variant="danger" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          <br />
   
-              <Button onClick={() => history.goBack()}
-                className={`${btnStyles.Button} ${btnStyles.Orange}`}
-              >
-                Cancel
-              </Button>
-            </Row>
-            <br />
-          </Form>
+          <Row className={styles.RowSpacing}>
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
+              type="submit"
+            >
+              Suggest
+            </Button>
+  
+            <Button onClick={() => history.goBack()}
+              className={`${btnStyles.Button} ${btnStyles.Orange}`}
+            >
+              Cancel
+            </Button>
+          </Row>
+          <br />
         </Container>
       </Form>
     );
