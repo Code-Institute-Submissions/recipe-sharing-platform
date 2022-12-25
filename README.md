@@ -30,7 +30,6 @@ The repository for the DRF-API associated with this project is available [HERE](
   + [C.R.U.D](#crud "C.R.U.D")
 + [Testing](#testing "Testing")
   + [Validator Testing](#validator-testing "Validator Testing")
-  + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
 + [Technologies Used](#technologies-used "Technologies Used")
   + [Main Languages Used](#main-languages-used "Main Languages Used")
   + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used "Frameworks, Libraries & Programs Used")
@@ -88,15 +87,15 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
 
 #### Navigation Bar - Desktop:
 
-![Navbar desktop](src/assets/navbar.png)
+![Navbar - desktop](src/assets/navbar.png)
 
 #### Navigation Bar - Desktop:
 
-![Logged-in Navbar desktop](src/assets/navbar_loggedin.png)
+![Logged-in Navbar - desktop](src/assets/navbar_loggedin.png)
 
 ##### Navigation Bar - Mobile:
 
-![Navbar mobile](src/assets/navbar_mini.png)
+![Navbar - mobile](src/assets/navbar_mini.png)
 
 ##### Homepage:
 
@@ -178,34 +177,18 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
  - Expected an assignment or function call and instead saw an expression
  - Do not nest ternary expressions
  - Fragments should contain more than one child
-2. b. Additionally, this error has also been ignored:
- - Identifier 'field_name' is not in camel case 
- - - relates to a database field in the API, case cannot be changed for this reason.
-2. c. All instances of errors where a newline has been asked for within an opening & closing set of tags, eg:
- - `<p>{owner} doesn't like the {drink}</p>` should be written as:
-```
-<p>
-  {owner}
-  {' '}
-  doesn't like this
-  {' '}
-  {drink}
-</p>
-```
- - This particular rule does not lend to the readability of the code, & instead hinders it (in my opinion).
-2. d. All `console.log(err);` have been left in place & commented out, as it was suggested that this is also done in real-world scenarios.
-2. e. Added all files affected by the above, unresolved warnings to `.eslintignore`, as well as added the following line to the top of each individual file, `/* eslint-disable */` to allow for a successful deployment on Heroku.
+2. b. All `console.log(err);` have been left in place and commented out, as it was suggested that this is also done in real-world scenarios.
+2. c. Added all files affected by the above, unresolved warnings to `.eslintignore`, as well as added the following line to the top of each individual file, `/* eslint-disable */` to allow for a successful deployment on Heroku.
 
 3. The page has an excellent Accessibility rating in Lighthouse:
 
-![Accessibility score](src/assets/images-readme/readme-lighthouse.png)
+![Accessibility score - desktop](src/assets/lighthouse_desktop.png)
+![Accessibility score - mobile](src/assets/lighthouse_mobile.png)
 
 4. Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
 
 5. All social links open to external pages as intended.
-
-### Unfixed Bugs
-Whilst it is not technically a bug, I would like to add that I am not entirely satisfied with the header of the site on mobile devices. Increasing the font size to make it stand out, causes the burger icon to shift onto a new line, which takes up too much real estate on the screen. I had attempted early on to separate out the components & have them be independent of each-other, however this then presented a new issue. When shrinking the size of the burger icon, this also shrank the expanding window, which cut off the navigation items. I was unable to ascertain how to target the exact style rule imposed by React-Bootstrap to over ride this and expand the display window, and instead compromised by implementing a smaller font-size into my heading.
+<br />
 
 ## Technologies Used
 ### Main Languages Used
@@ -213,17 +196,77 @@ Whilst it is not technically a bug, I would like to add that I am not entirely s
 - CSS3
 - Javascript
 - Python
-- SQL - Postgres
+- ElephantSQL
 
 ### Frameworks, Libraries & Programs Used
-- Google Fonts : For the site fonts.
 - Font Awesome : To add icons to the social links in the footer & navigation sections.
 - GitPod : To build the project & create the JSX & CSS files before pushing the project to Github.
 - GitHub : To store my repository for submission.
 - Balsamiq : Was used to create mockups of the project prior to starting.
 - Am I Responsive? : To ensure the project looked good across all devices.
-- Favicon : To provide the code & image for the icon in the tab bar.
 - Django : Used to build the backend database that serves as an API for the front-end project.
 - React-Bootstrap : The styling library that has aided to the layout of the site, and which was introduced to us during the course of the program.
 - DrawSQL : An interactive tool that allows for the creation of Database mock-ups so that we can visualise the relationships between models.
 - ReactJS : To build the components that would collectively form the front-end application.
+<br />
+
+## Components
+Several components have been implemented within this project that have been reused throughout the project:
+1. axiosDefault.js : for ease of communication with the backend API.
+2. Asset.js : to supply the loading spinner & user avatar throughout the site.
+3. MoreDropdown.js : to allow users to edit/delete their Posts, Events & Books.
+4. CurrentUserContext.js : confirm users logged-in status to determine what functionality is available to that user.
+5. ProfileDataContext.js : provide un/follow ability to other users across PopProf & ProfPage components.
+6. useClickOutsideToggle.js : whilst this component has only been applied to the NavBar, it could in theory be applied to additional dropdown menus installed into the site in the future to allow for the automatic collapse of an element upon mouse click.
+7. useRedirect.js : redirects a user to another page if they are not authorised to be on the page they are trying to access.
+8. utils.js : supplies functionality to all of the components that utilise the Infinite Scroll.
+
+## Deployment
+The site was deployed to Heroku. The steps to deploy are as follows:
+1. Launch the gitpod workspace.
+2. Install ReactJS:
+```
+npx create-react-app . --use-npm
+npm start
+```
+2. Install the following packages using the command `npm install`:
+```
+react-bootstrap@1.6.3 bootstrap@4.6.0
+react-router-dom@5.3.0
+axios
+react-infinite-scroll-component
+msw --save-dev
+jwt-decode
+-g eslint
+```
+3. Git add, commit, and push changes to gitpod.
+4. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
+
+### Connecting to the API:
+1. Navigated to the Heroku app of the project DRF-API, and under the Settings tab, added the following configvars:
+- Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com
+- Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
+2. Check that the trailing slash `\` at the end of both links has been removed, and save the configvar pairs.
+3. Install the Axios package, & create supporting `axiosDefaults.js` as shown in [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js).
+
+### Deploy to Heroku:
+1. In the `scripts` section of `package.json` in gitpod, added the following command:
+```
+"heroku-prebuild": "npm install -g serve",
+```
+2. Add Procfile to project root & populate with the following:
+```
+web: serve -s build
+```
+3. Repeat the steps of git add/commit/push.
+4. Deploy the project via the deploy button on Heroku.
+<br />
+
+## Credits
+
+### Content
+- Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. This is evident from the numerous docstrings within my files crediting the walkthrough.
+- [Martina Terlevic](https://github.com/SephTheOverwitch): A constant support system, providing reassurance, and the ability to calm me down.
+
+### Media
+- All the images on the site have been accumulated from different sources on the Internet. I do not have the information of the original content creator for these memes.
