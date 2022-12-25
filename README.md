@@ -73,6 +73,11 @@ To engage the user in a meaningful way, and encourage them to explore everything
 
 ### Typography:
 The following font has been downloaded and used for the entire project: [Font](https://www.dafont.com/wild-hazelnut.font)
+
+### Wireframes:
+![Homepage Wireframe - desktop](src/assets/homepage_wireframe_desktop.png)
+![Homepage Wireframe - mobile](src/assets/homepage_wireframe_mobile.png)
+![Site Navigation](src/assets/site_nav.png)
 <br />
 
 ## User Stories
