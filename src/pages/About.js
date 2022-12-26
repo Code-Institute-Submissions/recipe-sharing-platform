@@ -96,9 +96,9 @@ function About() {
         Explore the community to discover your next favorite dish. Use the search suggestions or advanced filters to find exactly what you're
         craving most. Unsure of what you want to eat tonight? Plug in what's in your kitchen and let Recipe Sharing Platform do the rest!
       </p>
-      <h2>
-        <strong>Build your social cookbook by liking recipes on Recipe Sharing Platform!</strong>
-      </h2>
+      <p>
+        Build your social cookbook by liking recipes on Recipe Sharing Platform!
+      </p>
       <br />
       <h2>
         <strong>Social Media:</strong>
