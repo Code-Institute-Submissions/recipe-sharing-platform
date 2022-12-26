@@ -45,13 +45,13 @@ function About() {
       </p>
       <br />
       <h2>
-        <strong>Our Community:</strong>
+        <strong>Join Our Community:</strong>
       </h2>
       <p>
-      The heart of Recipe Sharing Platform is our community of home cooks who share their beloved family recipes,
-      create new recipes, and photograph, rate, and review each other's recipes. Each week, more than 15 million registered members
-      add more than 2,000 recipe ratings, 800 new recipe photos, and almost 200 new recipes to the site. And every minute of every day,
-      27 people are saving recipes they love or want to try later.
+      The heart of Recipe Sharing Platform is our community of home cooks worldwide discovering recipes together,
+      sharing their beloved family recipes, creating new recipes, and photographing, rating, and reviewing each other's
+      recipes. Each week, more than 15 million registered members add more than 2,000 recipe ratings, 800 new recipe photos,
+      and almost 200 new recipes to the site. And every minute of every day, 27 people are saving recipes they love or want to try later.
       </p>
       <p>
       We moderate every review and photograph added to a recipe. When leaving reviews, we ask that you remember that a fellow Recipe
@@ -86,8 +86,19 @@ function About() {
         <strong>Share Your Recipe!</strong>
       </h2>
       <p>
-      Now you're ready to share your recipe with the world! Log into your Recipe Sharing Platform account and visit the Add a Recipe page to get going!
+        Now you're ready to share your recipe with the world! Log into your Recipe Sharing Platform account and visit the Add a Recipe page to get going!
       </p>
+      <br />
+      <h2>
+        <strong>Find you next meal</strong>
+      </h2>
+      <p>
+        Explore the community to discover your next favorite dish. Use the search suggestions or advanced filters to find exactly what you're
+        craving most. Unsure of what you want to eat tonight? Plug in what's in your kitchen and let Recipe Sharing Platform do the rest!
+      </p>
+      <h2>
+        <strong>Build your social cookbook by liking recipes on Recipe Sharing Platform!</strong>
+      </h2>
       <br />
       <h2>
         <strong>Social Media:</strong>

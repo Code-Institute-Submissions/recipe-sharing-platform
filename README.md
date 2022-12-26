@@ -1,6 +1,7 @@
 # Recipe Sharing Platform
-Recipe Sharing Platform is a recipes & social media platform for home chefs and & food-lovers alike. Here, users can find recipes, along with upcoming cooking events both in their local cities and online, and find out about cookbooks suggested by other members of the community. Users are invited to interact with each other by sharing recipes, cookbooks and cooking experiences.
-<br />
+Recipe Sharing Platform is a recipes & social media platform for home chefs, food-lovers and social media enthusiasts alike, as it offers a space where the users can exchange their favorite food recipes, upload a picture of their cooked dish and other users can like and comment. Users can also find upcoming cooking events both in their local cities and online, and discover cookbooks suggested by other members of the community. Users are invited to interact with each other by sharing recipes, cookbooks and cooking experiences.
+
+#
 
 The repository for the DRF-API associated with this project is available [HERE](https://github.com/Yari-Carelli/Recipe-Sharing-Platform-DRF-API). The installation, set up, and deployment steps for this section of the project have also been included in the README linked to the DRF-API. 
 
@@ -23,7 +24,8 @@ The repository for the DRF-API associated with this project is available [HERE](
 + [Design](#design "Design")
   + [Colour Scheme](#colour-scheme "Colour Scheme")
   + [Typography](#typography "Typography")
-  + [Wireframes](#imagery "Wireframes")
+  + [Wireframes](#wireframes "Wireframes")
+  + [Database Schema](#database-schema "Database Schema")
 + [User Stories](#user-stories "User Stories")
 + [Features](#features "Features")
   + [Existing Features](#existing-features "Existing Features")
@@ -43,13 +45,14 @@ The repository for the DRF-API associated with this project is available [HERE](
 ## UX
 
 ### Site Purpose:
-To bring interactivity to the culinary community by sharing the recipes, cooking events, cookbooks, and feedback from other cooking enthusiasts.
+Recipe Sharing Platform is a community of chefs of all skillsets and backgrounds focused on engaging around cooking and food.
+The app's purpose is to enpower users to post their favorite meals, create personal digital cookbooks by liking posts (which they can then easily find on a dedicated page), seamlessly view standardized recipe steps and details, and search recipes for specific dishes based on ingredients and courses. So the main purpose is to bring interactivity to the culinary community by sharing the recipes, cooking events, cookbooks, and feedback from other food enthusiasts.
 
 ### Site Goal:
-Recipe Sharing Platform is intended to create an online recipe archive built upon the home recipes shared by the community, as well as bring people together by suggesting cooking experiences and cookbooks with each other.
+Recipe Sharing Platform is intended to create an online recipe archive built upon the food recipes shared by the community, as well as bring people together by suggesting cooking experiences and cookbooks with each other.
 
 ### Audience:
-Everyone with an interest in cooking, and the desire to reach out & connect with like-minded individuals.
+Recipe Sharing Platform caters veryone with an interest in cooking, and the desire to reach out and connect with like-minded individuals.The app is built to celebrate the seasoned chefs sharing new content, friends and family sharing special recipes, photographers, creators, consumers, and everyone in between, and maybe change the way skeptics think about sharing food. 
 
 ### Communication:
 The layout is intended to represent a basic social platform, whilst at the same time having a playful, interactive feel to it. With the navigation panel being present at all times, the users can quickly navigate through the site to arrive at their intended destination.
@@ -78,6 +81,9 @@ The following font has been downloaded and used for the entire project: [Font](h
 ![Homepage Wireframe - desktop](src/assets/homepage_wireframe_desktop.png)
 ![Homepage Wireframe - mobile](src/assets/homepage_wireframe_mobile.png)
 ![Site Navigation](src/assets/site_nav.png)
+
+### Database Schema:
+This has been uploaded to the Backend README.md file, which can be found [HERE](https://github.com/Yari-Carelli/Recipe-Sharing-Platform-DRF-API).
 <br />
 
 ## User Stories
@@ -174,16 +180,7 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
 
 ![Jigsaw validator message](src/assets/w3c.png)
 
-2. a. Javascript files pass through [ESLint](https://eslint.org/). The following issues were raised, and have been intentionally ignored as they are in relation to code that was provided in the Moments Walkthrough project:
- - Props spreading is forbidden
- - Do not pass children as props. 
- - Do not use Array index in keys
- - 'a_name' is already declared in the upper scope
- - Expected an assignment or function call and instead saw an expression
- - Do not nest ternary expressions
- - Fragments should contain more than one child
-2. b. All `console.log(err);` have been left in place and commented out, as it was suggested that this is also done in real-world scenarios.
-2. c. Added all files affected by the above, unresolved warnings to `.eslintignore`, as well as added the following line to the top of each individual file, `/* eslint-disable */` to allow for a successful deployment on Heroku.
+2. a. Javascript files pass through the Javascript Testing Framework [Jest](https://jestjs.io/).
 
 3. The page has an excellent Accessibility rating in Lighthouse:
 
@@ -193,7 +190,7 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
 4. Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
 
 5. All social links open to external pages as intended.
-<br />
+
 
 ## Technologies Used
 ### Main Languages Used
