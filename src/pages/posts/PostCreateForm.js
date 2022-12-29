@@ -97,7 +97,7 @@ function PostCreateForm() {
 
       <Form.Group>
         <Form.Label>Ingredients:</Form.Label>
-        <Form.Control 
+        <Form.Control
           as="textarea"
           name="ingredients"
           value={ingredients}

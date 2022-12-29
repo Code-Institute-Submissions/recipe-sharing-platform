@@ -80,6 +80,7 @@ The following font has been downloaded and used for the entire project: [Font](h
 ### Wireframes:
 ![Homepage Wireframe - desktop](src/assets/homepage_wireframe_desktop.png)
 ![Homepage Wireframe - mobile](src/assets/homepage_wireframe_mobile.png)
+![Post Form Wireframe](src/assets/post_form_wireframe.png)
 ![Site Navigation](src/assets/site_nav.png)
 
 ### Database Schema:
