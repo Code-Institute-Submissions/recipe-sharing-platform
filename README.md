@@ -1,5 +1,5 @@
 # Recipe Sharing Platform
-Recipe Sharing Platform is a recipes & social media platform for home chefs, food-lovers and social media enthusiasts alike, as it offers a space where the users can exchange their favorite food recipes, upload a picture of their cooked dish and other users can like and comment. Users can also find upcoming cooking events both in their local cities and online, and discover cookbooks suggested by other members of the community. Users are invited to interact with each other by sharing recipes, cookbooks and cooking experiences.
+Recipe Sharing Platform is a recipes & social media platform for home chefs, food-lovers and social media enthusiasts alike, as it offers a space where the users can exchange their favorite food recipes, upload a picture of their cooked dish, and other users can like and comment. Users can also find upcoming cooking events both in their local cities and online, and discover cookbooks suggested by other members of the community. Users are invited to interact with each other by sharing recipes, cookbooks and cooking experiences.
 
 #
 
@@ -10,9 +10,10 @@ The repository for the DRF-API associated with this project is available [HERE](
 #### DEPLOYED FRONTEND HEROKU [LINK - LIVE SITE](https://recipe-sharing-platform-yc.herokuapp.com/)
 #### DEPLOYED BACKEND GITHUB [REPOSITORY](https://github.com/Yari-Carelli/Recipe-Sharing-Platform-DRF-API)
 
-![Site view across devices](src/assets/images-readme/.png)
+#
+<img width="700" src="src/assets/responsive.png">
 
-
+#
 ## Table of Contents
 + [UX](#ux "UX")
   + [Site Purpose](#site-purpose "Site Purpose")l
@@ -42,6 +43,8 @@ The repository for the DRF-API associated with this project is available [HERE](
   + [Media](#media "Media")
 <br />
 
+#
+
 ## UX
 
 ### Site Purpose:
@@ -69,23 +72,30 @@ To engage the user in a meaningful way, and encourage them to explore everything
 - To expand the events section and provide a google maps location for each event, so that users may understand in more detail where an event is to be hosted.
 <br />
 
+#
+
 ## Design
 
-### Colour Scheme:
-![Colour Palette](src/assets/color-palette.png)
+### Color Scheme:
+<img width="300" src="src/assets/color_palette.png">
 
 ### Typography:
 The following font has been downloaded and used for the entire project: [Font](https://www.dafont.com/wild-hazelnut.font)
 
 ### Wireframes:
-![Homepage Wireframe - desktop](src/assets/homepage_wireframe_desktop.png)
-![Homepage Wireframe - mobile](src/assets/homepage_wireframe_mobile.png)
-![Post Form Wireframe](src/assets/post_form_wireframe.png)
-![Site Navigation](src/assets/site_nav.png)
+<img width="400" src="src/assets/homepage_wireframe_desktop.png">
+
+<img width="200" height="400" src="src/assets/homepage_wireframe_mobile.png">
+
+<img width="400" src="src/assets/post_form_wireframe.png">
+
+<img width="500" src="src/assets/site_nav.png">
 
 ### Database Schema:
 This has been uploaded to the Backend README.md file, which can be found [HERE](https://github.com/Yari-Carelli/Recipe-Sharing-Platform-DRF-API).
 <br />
+
+#
 
 ## User Stories
 I have included links to the [GitHub Issues](https://github.com/Yari-Carelli/recipe-sharing-platform/issues) for this project, as well as the [KANBAN board](https://github.com/users/Yari-Carelli/projects/16).
@@ -93,61 +103,63 @@ I have included links to the [GitHub Issues](https://github.com/Yari-Carelli/rec
 A full list of the User Stories typed up can be also found here [HERE](src/assets/UserStories.md).
 <br />
 
-# Features
+#
+
+## Features
 
 ### Existing Features:
 
 #### Navigation Bar - Desktop:
 
-![Navbar - desktop](src/assets/navbar.png)
+<img width="500" src="src/assets/navbar.png">
 
-#### Navigation Bar - Desktop:
+#### Logged-in Navigation Bar - Desktop:
 
-![Logged-in Navbar - desktop](src/assets/navbar_loggedin.png)
+<img width="500" src="src/assets/navbar_loggedin.png">
 
 ##### Navigation Bar - Mobile:
 
-![Navbar - mobile](src/assets/navbar_mini.png)
+<img width="500" src="src/assets/navbar_mini.png">
 
 ##### Homepage:
 
-![Homepage](src/assets/homepage.png)
+<img width="500" src="src/assets/homepage.png">
 
 ##### Search Bar:
 
-![Searchbar](src/assets/searchbar.png)
+<img width="500" src="src/assets/searchbar.png">
 
 #### About Page:
 
-![About Page](src/assets/about_page.png.png)
+<img width="500" src="src/assets/about_page.png">
 
 #### Events Page:
 
-![Events Page](src/assets/events_page.png)
+<img width="500" src="src/assets/events_page.png">
 
-#### Submission Form:
+#### Books Page:
 
-![Books Page](src/assets/books_page.png)
+<img width="500" src="src/assets/books_page.png">
 
 #### Popular Profiles:
 
-![Popular Profiles](src/assets/popular_profiles.png)
+<img width="400" height="500" src="src/assets/popular_profiles.png">
 
 #### Social Links:
 
-![Social Links](src/assets/social_links.png)
+<img width="500" src="src/assets/social_links.png">
 
 ##### Sign-in Page:
 
-![Sign-in Page](src/assets/signin_page.png.png)
+<img width="500" src="src/assets/signin_page.png">
 
 ##### Sign-up Page:
 
-![Sign-up](src/assets/signup_page.png.png)
+<img width="500" src="src/assets/signup_page.png">
 
 ##### Comment Form:
 
-![Comment form](src/assets/comment_form.png.png)
+<img width="500" src="src/assets/comment_form.png">
 
 ### Features to Implement:
 - The ability to like events and books.
@@ -161,10 +173,11 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
 - A contact form so that users can provide feedback.
 <br />
 
+#
+
 ## Testing
 
 ### Manual Testing:
-
 - CRUD functionality has been tested for each of the following: Posts | Books | Events | Comments | Likes | Follow | Profile
  - Likes & Follow may only be created & deleted
  - Profile may only be updated
@@ -179,21 +192,28 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
 ### Validator Testing
 1. CSS files vave been validated by direct input and passed through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/) with no issues found.
 
-![Jigsaw validator message](src/assets/w3c.png)
+<img width="500" src="src/assets/w3c.png">
 
-2. a. Javascript files pass through the Javascript Testing Framework [Jest](https://jestjs.io/).
+2. a. Javascript files pass through the Javascript 
+Testing Framework [JSHint](https://jshint.com/).
+A screenshot of the Post.js file's validation has been provided as an example: for each file no errors were raised by the validator, only warnings or nothing at all.
+
+<img width="500" src="src/assets/jshint.png">
 
 3. The page has an excellent Accessibility rating in Lighthouse:
 
-![Accessibility score - desktop](src/assets/lighthouse_desktop.png)
-![Accessibility score - mobile](src/assets/lighthouse_mobile.png)
+<img width="500" src="src/assets/lighthouse_desktop.png">
+
+<img width="500" src="src/assets/lighthouse_mobile.png">
 
 4. Tested the site opens in Brave, Chrome, Safari & on a mobile device without issues.
 
 5. All social links open to external pages as intended.
 
+#
 
 ## Technologies Used
+
 ### Main Languages Used
 - HTML5
 - CSS3
@@ -213,6 +233,8 @@ A full list of the User Stories typed up can be also found here [HERE](src/asset
 - ReactJS : To build the components that would collectively form the front-end application.
 <br />
 
+#
+
 ## Components
 Several components have been implemented within this project that have been reused throughout the project:
 1. axiosDefault.js : for ease of communication with the backend API.
@@ -223,6 +245,8 @@ Several components have been implemented within this project that have been reus
 6. useClickOutsideToggle.js : whilst this component has only been applied to the NavBar, it could in theory be applied to additional dropdown menus installed into the site in the future to allow for the automatic collapse of an element upon mouse click.
 7. useRedirect.js : redirects a user to another page if they are not authorised to be on the page they are trying to access.
 8. utils.js : supplies functionality to all of the components that utilise the Infinite Scroll.
+
+#
 
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
@@ -265,11 +289,13 @@ web: serve -s build
 4. Deploy the project via the deploy button on Heroku.
 <br />
 
+#
+
 ## Credits
 
 ### Content
-- Code Institute: The creation of the project came to life by utilising the Moments walkthrough step-by-step as a base foundation, and then building upon it to make the project my own. This is evident from the numerous docstrings within my files crediting the walkthrough.
-- [Martina Terlevic](https://github.com/SephTheOverwitch): A constant support system, providing reassurance, and the ability to calm me down.
+- Code Institute: The project was created following the "Moments" walkthrough project step-by-step as a base foundation, and then building upon it to make the project my own.
+- [Martina Terlevic](https://github.com/SephTheOverwitch): A constant source of support, providing reassurance, precious advice and patient guidance.
 
 ### Media
 - All the images on the site have been accumulated from different sources on the Internet. I do not have the information of the original content creator for these memes.
